@@ -1,5 +1,6 @@
 const express = require("express");
 const booksRouter = require("./router/booksRouter");
+const seriesRouter = require("./router/seriesInfoRouter.js");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -10,16 +11,19 @@ app.get("/", (req, res) => {
   res.json({
     message: "Welcome to the Book API",
     endpoints: {
-      books: "/api/novel",
-      latest: "/api/novel/latest?page=1&perPage=10",
-      bookById: "/api/novel/1016",
-      anilist: "/api/novel/1016/anilist",
-      ranobedb: "/api/novel/1016/ranobedb",
+      books: "/api/v0/novel",
+      latest: "/api/v0/novel/latest?page=1&perPage=10",
+      bookById: "/api/v0/novel/1016",
+      anilist: "/api/v0/novel/1016/anilist",
+      ranobedb: "/api/v0/novel/1016/ranobedb",
+      series: "/api/v0/novel/series/1016",
     },
   });
 });
 
-app.use("/api/novel", booksRouter);
+// Specific path first, otherwise "series" gets matched as a book :id.
+app.use("/api/v0/novel/series", seriesRouter);
+app.use("/api/v0/novel", booksRouter);
 
 // Unknown routes
 app.use((req, res) => {
@@ -41,13 +45,10 @@ app.use((error, req, res, next) => {
   });
 });
 
-// Start a listener only when run directly:
-// node src/server.js
 if (require.main === module) {
   app.listen(PORT, () => {
     console.log(`Book API running at http://localhost:${PORT}`);
   });
 }
 
-// Vercel uses the exported app.
 module.exports = app;

@@ -2,11 +2,12 @@ const express = require("express");
 const { books } = require("../data/novels.json");
 const AnilistProvider = require("../providers/AnilistProvider");
 const RanobeDBProvider = require("../providers/RanobeDBProvider");
+const loadBook = require("../middleware/loadBook");
 
 const router = express.Router();
 
-// GET /api/books
-// GET /api/books?q=7th%20Time%20Loop
+// GET /api/v0/novel
+// GET /api/v0/novel?q=7th%20Time%20Loop
 router.get("/", (req, res) => {
   const { q } = req.query;
 
@@ -28,30 +29,61 @@ router.get("/", (req, res) => {
   });
 });
 
-// Validate the local book ID and find the book.
-// Runs for every route below containing :id.
-router.param("id", (req, res, next, value) => {
-  const id = Number(value);
+// GET /api/v0/novel/latest?page=1&perPage=10
+// Kept above the :id routes so "latest" is never treated as an ID.
+router.get("/latest", (req, res) => {
+  const pageValue = req.query.page ?? "1";
+  const perPageValue = req.query.perPage ?? "10";
 
-  if (!Number.isSafeInteger(id) || id <= 0) {
+  if (
+    typeof pageValue !== "string" ||
+    typeof perPageValue !== "string" ||
+    !/^[1-9]\d*$/.test(pageValue) ||
+    !/^[1-9]\d*$/.test(perPageValue)
+  ) {
     return res.status(400).json({
-      message: "Book ID must be a positive integer.",
+      message: "page and perPage must be positive integers.",
     });
   }
 
-  const book = books.find((item) => item.id === id);
+  const page = Number(pageValue);
+  const perPage = Number(perPageValue);
 
-  if (!book) {
-    return res.status(404).json({
-      message: "Book not found.",
+  if (
+    !Number.isSafeInteger(page) ||
+    !Number.isSafeInteger(perPage) ||
+    perPage > 100
+  ) {
+    return res.status(400).json({
+      message:
+        "page must be a safe positive integer and perPage must be between 1 and 100.",
     });
   }
 
-  req.book = book;
-  next();
+  const sortedBooks = [...books].sort((a, b) => b.id - a.id);
+
+  const total = sortedBooks.length;
+  const totalPages = Math.ceil(total / perPage);
+
+  const results =
+    page > totalPages
+      ? []
+      : sortedBooks.slice((page - 1) * perPage, page * perPage);
+
+  return res.json({
+    page,
+    perPage,
+    total,
+    totalPages,
+    hasNextPage: page < totalPages,
+    books: results,
+  });
 });
 
-// GET /api/books/:id/anilist
+// Validates the local book ID and sets req.book
+router.param("id", loadBook);
+
+// GET /api/v0/novel/:id/anilist
 router.get("/:id/anilist", async (req, res) => {
   const provider = req.book.providers?.find(
     (item) => item.name?.toLowerCase() === "anilist",
@@ -85,10 +117,8 @@ router.get("/:id/anilist", async (req, res) => {
   }
 });
 
-// GET /api/books/:id/ranobedb
-// :id is your LOCAL book ID.
+// GET /api/v0/novel/:id/ranobedb
 router.get("/:id/ranobedb", async (req, res) => {
-  // req.book is populated by your existing router.param("id", ...).
   const provider = req.book.bookProvider;
 
   if (!provider || provider.name?.toLowerCase() !== "ranobedb") {
@@ -98,7 +128,7 @@ router.get("/:id/ranobedb", async (req, res) => {
   }
 
   try {
-    const ranobedb = await RanobeDBProvider.getBookById(provider.id);
+    const ranobedb = await RanobeDBProvider.getBookById(provider.id, "book");
 
     return res.json({
       bookId: req.book.id,
@@ -119,60 +149,7 @@ router.get("/:id/ranobedb", async (req, res) => {
   }
 });
 
-// GET /api/books/latest?page=1&perPage=10
-router.get("/latest", (req, res) => {
-  const pageValue = req.query.page ?? "1";
-  const perPageValue = req.query.perPage ?? "10";
-
-  // Only accept positive whole-number query parameters.
-  if (
-    typeof pageValue !== "string" ||
-    typeof perPageValue !== "string" ||
-    !/^[1-9]\d*$/.test(pageValue) ||
-    !/^[1-9]\d*$/.test(perPageValue)
-  ) {
-    return res.status(400).json({
-      message: "page and perPage must be positive integers.",
-    });
-  }
-
-  const page = Number(pageValue);
-  const perPage = Number(perPageValue);
-
-  if (
-    !Number.isSafeInteger(page) ||
-    !Number.isSafeInteger(perPage) ||
-    perPage > 100
-  ) {
-    return res.status(400).json({
-      message:
-        "page must be a safe positive integer and perPage must be between 1 and 100.",
-    });
-  }
-
-  // Copy before sorting to avoid changing the original books array.
-  const sortedBooks = [...books].sort((a, b) => b.id - a.id);
-
-  const total = sortedBooks.length;
-  const totalPages = Math.ceil(total / perPage);
-
-  // Out-of-range pages return an empty array.
-  const results =
-    page > totalPages
-      ? []
-      : sortedBooks.slice((page - 1) * perPage, page * perPage);
-
-  return res.json({
-    page,
-    perPage,
-    total,
-    totalPages,
-    hasNextPage: page < totalPages,
-    books: results,
-  });
-});
-
-// GET /api/books/:id
+// GET /api/v0/novel/:id
 router.get("/:id", (req, res) => {
   res.json(req.book);
 });

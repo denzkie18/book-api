@@ -9,15 +9,15 @@ class RanobeDBProviderError extends Error {
   }
 }
 
-async function getBookById(id) {
+async function getBookById(id, requestType) {
   if (!Number.isSafeInteger(id) || id <= 0) {
-    throw new RanobeDBProviderError("Invalid RanobeDB book ID.", 400);
+    throw new RanobeDBProviderError(`Invalid RanobeDB ${requestType} ID.`, 400);
   }
 
   let response;
 
   try {
-    response = await fetch(`${RANOBEDB_API_URL}/book/${id}`, {
+    response = await fetch(`${RANOBEDB_API_URL}/${requestType}/${id}`, {
       headers: {
         Accept: "application/json",
       },
@@ -36,7 +36,7 @@ async function getBookById(id) {
   }
 
   if (response.status === 404) {
-    throw new RanobeDBProviderError("Book not found on RanobeDB.", 404);
+    throw new RanobeDBProviderError("Data not found on RanobeDB.", 404);
   }
 
   if (response.status === 429) {
@@ -61,16 +61,17 @@ async function getBookById(id) {
     throw new RanobeDBProviderError("RanobeDB returned invalid JSON.");
   }
 
-  // Extract the book from the response wrapper.
-  const book = payload?.book;
+  // "series" requests are wrapped in { series }, "book" in { book }.
+  const key = requestType === "series" ? "series" : "book";
+  const item = payload?.[key];
 
-  if (!book || typeof book !== "object" || book.id !== id) {
+  if (!item || typeof item !== "object" || item.id !== id) {
     throw new RanobeDBProviderError(
-      "RanobeDB returned an unexpected book response.",
+      "RanobeDB returned an unexpected data response.",
     );
   }
 
-  return book;
+  return item;
 }
 
 module.exports = {
