@@ -1,6 +1,790 @@
 {
   "books": [
     {
+      "id": 1044,
+      "title": "A Late-Start Tamer’s Laid-Back Life",
+      "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/0/04/Deo13.jpg/revision/latest?cb=20261005171413",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/a-late-start-tamer-s-laid-back-life"
+        }
+      ],
+      "volume": 13,
+      "bookCloudId": "",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 105867
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8080
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 45021
+      }
+    },
+    {
+      "id": 1043,
+      "title": "A Late-Start Tamer’s Laid-Back Life",
+      "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/8/86/Deo12.jpg/revision/latest?cb=20261005171400",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/a-late-start-tamer-s-laid-back-life"
+        }
+      ],
+      "volume": 12,
+      "bookCloudId": "",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 105867
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8080
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 40560
+      }
+    },
+    {
+      "id": 1042,
+      "title": "A Late-Start Tamer’s Laid-Back Life",
+      "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/1/19/Deo11.jpg/revision/latest?cb=20261005171350",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/a-late-start-tamer-s-laid-back-life"
+        }
+      ],
+      "volume": 11,
+      "bookCloudId": "",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 105867
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8080
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 40460
+      }
+    },
+    {
+      "id": 1041,
+      "title": "A Late-Start Tamer’s Laid-Back Life",
+      "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/d/d9/Deo10.jpg/revision/latest?cb=20260930062229",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/a-late-start-tamer-s-laid-back-life"
+        }
+      ],
+      "volume": 10,
+      "bookCloudId": "",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 105867
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8080
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 37607
+      }
+    },
+    {
+      "id": 1040,
+      "title": "A Late-Start Tamer’s Laid-Back Life",
+      "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/4/45/Deo9.jpg/revision/latest?cb=20260930062220",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/a-late-start-tamer-s-laid-back-life"
+        }
+      ],
+      "volume": 9,
+      "bookCloudId": "",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 105867
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8080
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 36429
+      }
+    },
+    {
+      "id": 1039,
+      "title": "A Late-Start Tamer’s Laid-Back Life",
+      "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/f/f2/Deo8.jpg/revision/latest?cb=20260930062211",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/a-late-start-tamer-s-laid-back-life"
+        }
+      ],
+      "volume": 8,
+      "bookCloudId": "",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 105867
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8080
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 34406
+      }
+    },
+    {
+      "id": 1038,
+      "title": "A Late-Start Tamer’s Laid-Back Life",
+      "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/3/32/Deo7.jpg/revision/latest?cb=20260930062202",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/a-late-start-tamer-s-laid-back-life"
+        }
+      ],
+      "volume": 7,
+      "bookCloudId": "",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 105867
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8080
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 32611
+      }
+    },
+    {
+      "id": 1037,
+      "title": "A Late-Start Tamer’s Laid-Back Life",
+      "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/7/78/Deo6.PNG/revision/latest?cb=20230301165420",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/a-late-start-tamer-s-laid-back-life"
+        }
+      ],
+      "volume": 6,
+      "bookCloudId": "",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 105867
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8080
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 30825
+      }
+    },
+    {
+      "id": 1036,
+      "title": "A Late-Start Tamer’s Laid-Back Life",
+      "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/b/bb/Deo5.PNG/revision/latest?cb=20230301165415",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/a-late-start-tamer-s-laid-back-life"
+        }
+      ],
+      "volume": 5,
+      "bookCloudId": "",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 105867
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8080
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 29308
+      }
+    },
+    {
+      "id": 1035,
+      "title": "A Late-Start Tamer’s Laid-Back Life",
+      "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/4/44/Deo4.PNG/revision/latest?cb=20230301165411",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/a-late-start-tamer-s-laid-back-life"
+        }
+      ],
+      "volume": 4,
+      "bookCloudId": "",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 105867
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8080
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 27845
+      }
+    },
+    {
+      "id": 1034,
+      "title": "A Late-Start Tamer’s Laid-Back Life",
+      "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/2/25/Deo3.PNG/revision/latest?cb=20230301165406",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/a-late-start-tamer-s-laid-back-life"
+        }
+      ],
+      "volume": 3,
+      "bookCloudId": "",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 105867
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8080
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 26626
+      }
+    },
+    {
+      "id": 1033,
+      "title": "A Late-Start Tamer’s Laid-Back Life",
+      "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/3/3d/Deo2.PNG/revision/latest?cb=20230301165353",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/a-late-start-tamer-s-laid-back-life"
+        }
+      ],
+      "volume": 2,
+      "bookCloudId": "",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 105867
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8080
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 24745
+      }
+    },
+    {
+      "id": 1032,
+      "title": "A Late-Start Tamer’s Laid-Back Life",
+      "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/7/75/Deo1.PNG/revision/latest?cb=20230302031157",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/a-late-start-tamer-s-laid-back-life"
+        }
+      ],
+      "volume": 1,
+      "bookCloudId": "",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 105867
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8080
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 23096
+      }
+    },
+    {
+      "id": 1031,
+      "title": "86―EIGHTY-SIX Alter: Fight, Magical Girl Reina Lena! Go, Starship San Magnolia!",
+      "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/a/a5/Alter_2_EN_Cover.jpg/revision/latest?cb=20260312030459",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975303136-86-eighty-six-vol-1-light-novel"
+        }
+      ],
+      "volume": 2,
+      "bookCloudId": "194yKqYisS1WSZwhZZ1Kn2RE3gEouzK5p",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 162703
+        },
+        {
+          "name": "RanobeDB",
+          "id": 6547
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 45040
+      }
+    },
+    {
+      "id": 1030,
+      "title": "86―EIGHTY-SIX Alter: The Reaper's Occasional Adolescence",
+      "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/4/42/Alter1_EN_Cover.jpg/revision/latest?cb=20240927035832",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975303136-86-eighty-six-vol-1-light-novel"
+        }
+      ],
+      "volume": 1,
+      "bookCloudId": "1yab4sX_SJrVslsL35MnStwzPXIrzu6nx",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 162703
+        },
+        {
+          "name": "RanobeDB",
+          "id": 6547
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 38234
+      }
+    },
+    {
+      "id": 1029,
+      "title": "86―EIGHTY-SIX: Dear Hunter",
+      "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/7/75/V13_Cover_EN.jpg/revision/latest?cb=20240927040049",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975303136-86-eighty-six-vol-1-light-novel"
+        }
+      ],
+      "volume": 13,
+      "bookCloudId": "14Y1xx29DnUS4EQJFxRzTSO2cwBozY4y1",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 98610
+        },
+        {
+          "name": "RanobeDB",
+          "id": 6547
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 40866
+      }
+    },
+    {
+      "id": 1028,
+      "title": "86―EIGHTY-SIX: Holy Blue Bullet",
+      "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/8/85/V12_Cover_EN.jpg/revision/latest?cb=20230807235247",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975303136-86-eighty-six-vol-1-light-novel"
+        }
+      ],
+      "volume": 12,
+      "bookCloudId": "1gMdTCVbdObeFIeHLI5PqHXrBqdJfcpnC",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 98610
+        },
+        {
+          "name": "RanobeDB",
+          "id": 6547
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 37701
+      }
+    },
+    {
+      "id": 1027,
+      "title": "86―EIGHTY-SIX: Dies Passionis",
+      "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/8/84/Volume_11_English_Cover.jpg/revision/latest?cb=20220816123728",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975303136-86-eighty-six-vol-1-light-novel"
+        }
+      ],
+      "volume": 11,
+      "bookCloudId": "1ZWnWTnhmOxi-59xv7QyssN4HGvIxkQir",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 98610
+        },
+        {
+          "name": "RanobeDB",
+          "id": 6547
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 34458
+      }
+    },
+    {
+      "id": 1026,
+      "title": "86―EIGHTY-SIX: Fragmental Neoteny",
+      "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/3/3a/Volume_10_English_Cover.jpg/revision/latest?cb=20260922031810",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975303136-86-eighty-six-vol-1-light-novel"
+        }
+      ],
+      "volume": 10,
+      "bookCloudId": "1PA8l0kZHoo6GqhfGUD6HKgY1CQwVeUNJ",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 98610
+        },
+        {
+          "name": "RanobeDB",
+          "id": 6547
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 32548
+      }
+    },
+    {
+      "id": 1025,
+      "title": "86―EIGHTY-SIX: Valkyrie Has Landed",
+      "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/8/8c/Volume_9_English_Cover.jpg/revision/latest?cb=20211227171727",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975303136-86-eighty-six-vol-1-light-novel"
+        }
+      ],
+      "volume": 9,
+      "bookCloudId": "1h9PabG3mYqB4DaPNM73xUmvAQxHacCYf",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 98610
+        },
+        {
+          "name": "RanobeDB",
+          "id": 6547
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 31561
+      }
+    },
+    {
+      "id": 1024,
+      "title": "86―EIGHTY-SIX: Gun Smoke on the Water",
+      "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/4/40/Volume_8_English.jpg/revision/latest?cb=20210615135512",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975303136-86-eighty-six-vol-1-light-novel"
+        }
+      ],
+      "volume": 8,
+      "bookCloudId": "16ycyDQxVafZ9VQWHabuK8feOhb10bMps",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 98610
+        },
+        {
+          "name": "RanobeDB",
+          "id": 6547
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 29278
+      }
+    },
+    {
+      "id": 1023,
+      "title": "86―EIGHTY-SIX: Mist",
+      "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/b/b2/Volume_7_English.jpg/revision/latest?cb=20220206010611",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975303136-86-eighty-six-vol-1-light-novel"
+        }
+      ],
+      "volume": 7,
+      "bookCloudId": "1Tctpx1U16fBZRCkbNoISJUR853ZRiXUw",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 98610
+        },
+        {
+          "name": "RanobeDB",
+          "id": 6547
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 27423
+      }
+    },
+    {
+      "id": 1022,
+      "title": "86―EIGHTY-SIX: Darkest Before the Dawn",
+      "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/4/4f/Volume_6_English.jpg/revision/latest?cb=20220206010600",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975303136-86-eighty-six-vol-1-light-novel"
+        }
+      ],
+      "volume": 6,
+      "bookCloudId": "1_D_6mnaL45L4GriMwZwoTY3QP4H8mucw",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 98610
+        },
+        {
+          "name": "RanobeDB",
+          "id": 6547
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 25891
+      }
+    },
+    {
+      "id": 1021,
+      "title": "86--EIGHTY-SIX: Death, Be Not Proud",
+      "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/3/38/Volume_5_English.jpg/revision/latest?cb=20220206010454",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975303136-86-eighty-six-vol-1-light-novel"
+        }
+      ],
+      "volume": 5,
+      "bookCloudId": "1FPY8xOksavNmIM845-a1aEz-kmtNLdIf",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 98610
+        },
+        {
+          "name": "RanobeDB",
+          "id": 6547
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 24461
+      }
+    },
+    {
+      "id": 1020,
+      "title": "86―EIGHTY-SIX: Under Pressure",
+      "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/5/55/86_Volume_4_English.jpg/revision/latest?cb=20220206010339",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975303136-86-eighty-six-vol-1-light-novel"
+        }
+      ],
+      "volume": 4,
+      "bookCloudId": "1mB7w_-Tz1n1-1yoFIfoYTppe2k40He2T",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 98610
+        },
+        {
+          "name": "RanobeDB",
+          "id": 6547
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 23137
+      }
+    },
+    {
+      "id": 1019,
+      "title": "86―EIGHTY-SIX: Run Through the Battlefront (End)",
+      "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/6/6a/English_cover_volume_3.png/revision/latest?cb=20191127135036",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975303136-86-eighty-six-vol-1-light-novel"
+        }
+      ],
+      "volume": 3,
+      "bookCloudId": "19D4uxXtWhwf9FqfraiMv2Zz3ndTGFxiI",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 98610
+        },
+        {
+          "name": "RanobeDB",
+          "id": 6547
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 21975
+      }
+    },
+    {
+      "id": 1018,
+      "title": "86―EIGHTY-SIX: Run Through the Battlefront (Start)",
+      "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/9/92/English_cover_volume_2.png/revision/latest?cb=20191127134535",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975303136-86-eighty-six-vol-1-light-novel"
+        }
+      ],
+      "volume": 2,
+      "bookCloudId": "1ooT_DO7jfjowzZHfx7fNmRhYJDsqyyFI",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 98610
+        },
+        {
+          "name": "RanobeDB",
+          "id": 6547
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 20809
+      }
+    },
+    {
+      "id": 1017,
+      "title": "86―EIGHTY-SIX",
+      "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/1/1d/Light_Novel_Volume_1_Cover_English.jpg/revision/latest?cb=20220206010804",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975303136-86-eighty-six-vol-1-light-novel"
+        }
+      ],
+      "volume": 1,
+      "bookCloudId": "1eCCnbFqD2KpZkJQKEeZin90NEIRyc5Wf",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 98610
+        },
+        {
+          "name": "RanobeDB",
+          "id": 6547
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 19629
+      }
+    },
+    {
       "id": 1016,
       "title": "7th Time Loop: The Villainess Enjoys a Carefree Life Married to Her Worst Enemy! Short Story Collection",
       "coverUrl": "https://static.wikia.nocookie.net/7th-time-loop/images/1/18/7TL_Short_Story_Collection_Japanese_Cover.jpg/revision/latest?cb=20260121054758",
@@ -202,7 +986,7 @@
       "coverUrl": "https://static.wikia.nocookie.net/yasei-no-last-boss-arawareta/images/2/25/V9_Cover_English.png/revision/latest?cb=20230225065547",
       "publishers": [
         {
-          "name": "JNovel Club",
+          "name": "J-Novel Club",
           "site": "https://j-novel.club/",
           "siteLink": "https://j-novel.club/series/a-wild-last-boss-appeared#volume-9"
         }
@@ -230,7 +1014,7 @@
       "coverUrl": "https://static.wikia.nocookie.net/yasei-no-last-boss-arawareta/images/5/5e/V8_Cover_English.png/revision/latest?cb=20230225065541",
       "publishers": [
         {
-          "name": "JNovel Club",
+          "name": "J-Novel Club",
           "site": "https://j-novel.club/",
           "siteLink": "https://j-novel.club/series/a-wild-last-boss-appeared#volume-8"
         }
@@ -258,7 +1042,7 @@
       "coverUrl": "https://static.wikia.nocookie.net/yasei-no-last-boss-arawareta/images/d/d5/V7_Cover_English.png/revision/latest?cb=20230225065540",
       "publishers": [
         {
-          "name": "JNovel Club",
+          "name": "J-Novel Club",
           "site": "https://j-novel.club/",
           "siteLink": "https://j-novel.club/series/a-wild-last-boss-appeared#volume-7"
         }
@@ -286,7 +1070,7 @@
       "coverUrl": "https://static.wikia.nocookie.net/yasei-no-last-boss-arawareta/images/0/0a/V6_Cover_English.png/revision/latest?cb=20230225065542",
       "publishers": [
         {
-          "name": "JNovel Club",
+          "name": "J-Novel Club",
           "site": "https://j-novel.club/",
           "siteLink": "https://j-novel.club/series/a-wild-last-boss-appeared#volume-6"
         }
@@ -314,7 +1098,7 @@
       "coverUrl": "https://static.wikia.nocookie.net/yasei-no-last-boss-arawareta/images/6/65/V5_Cover_English.png/revision/latest?cb=20230225065540",
       "publishers": [
         {
-          "name": "JNovel Club",
+          "name": "J-Novel Club",
           "site": "https://j-novel.club/",
           "siteLink": "https://j-novel.club/series/a-wild-last-boss-appeared#volume-5"
         }
@@ -342,7 +1126,7 @@
       "coverUrl": "https://static.wikia.nocookie.net/yasei-no-last-boss-arawareta/images/5/52/V4_Cover_English.png/revision/latest?cb=20230225065457",
       "publishers": [
         {
-          "name": "JNovel Club",
+          "name": "J-Novel Club",
           "site": "https://j-novel.club/",
           "siteLink": "https://j-novel.club/series/a-wild-last-boss-appeared#volume-4"
         }
@@ -370,7 +1154,7 @@
       "coverUrl": "https://static.wikia.nocookie.net/yasei-no-last-boss-arawareta/images/3/3a/V3_Cover_English.png/revision/latest?cb=20230225065542",
       "publishers": [
         {
-          "name": "JNovel Club",
+          "name": "J-Novel Club",
           "site": "https://j-novel.club/",
           "siteLink": "https://j-novel.club/series/a-wild-last-boss-appeared#volume-3"
         }
@@ -398,7 +1182,7 @@
       "coverUrl": "https://static.wikia.nocookie.net/yasei-no-last-boss-arawareta/images/3/32/V2_Cover_English.png/revision/latest?cb=20230225065542",
       "publishers": [
         {
-          "name": "JNovel Club",
+          "name": "J-Novel Club",
           "site": "https://j-novel.club/",
           "siteLink": "https://j-novel.club/series/a-wild-last-boss-appeared#volume-2"
         }
@@ -426,7 +1210,7 @@
       "coverUrl": "https://static.wikia.nocookie.net/yasei-no-last-boss-arawareta/images/6/6f/V1_Cover_English.png/revision/latest?cb=20230225051136",
       "publishers": [
         {
-          "name": "JNovel Club",
+          "name": "J-Novel Club",
           "site": "https://j-novel.club/",
           "siteLink": "https://j-novel.club/series/a-wild-last-boss-appeared#volume-1"
         }

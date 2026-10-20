@@ -2,8 +2,11 @@ const express = require("express");
 const AnilistProvider = require("../providers/AnilistProvider");
 const RanobeDBProvider = require("../providers/RanobeDBProvider");
 const loadBook = require("../middleware/loadBook");
+const { books } = require("../data/novels.json");
 
 const router = express.Router();
+
+const BOOK_FIELDS = ["id", "title", "volume", "coverUrl"];
 
 router.param("id", loadBook);
 
@@ -23,6 +26,26 @@ function handleError(res, error) {
 
 function findProvider(book, name) {
   return book.providers?.find((item) => item.name?.toLowerCase() === name);
+}
+
+// Local books that belong to the same series as `book`.
+// Matches on the RanobeDB series ID, or the AniList ID if there is no RanobeDB one.
+
+function pickBookFields(book) {
+  return Object.fromEntries(BOOK_FIELDS.map((key) => [key, book[key] ?? null]));
+}
+
+function booksInSeries(book) {
+  const provider =
+    findProvider(book, "ranobedb") ?? findProvider(book, "anilist");
+
+  if (!provider) return [book];
+
+  const name = provider.name.toLowerCase();
+
+  return books
+    .filter((item) => findProvider(item, name)?.id === provider.id)
+    .sort((x, y) => x.id - y.id);
 }
 
 // The only RanobeDB fields merged into the AniList data.
@@ -108,9 +131,13 @@ router.get("/:id", async (req, res) => {
     ...(rData ? ranobedbFields(rData) : {}),
   };
 
+  const seriesBooks = booksInSeries(req.book);
+
   return res.json({
     bookId: req.book.id,
     series,
+    totalBooks: seriesBooks.length,
+    books: seriesBooks.map(pickBookFields),
     ...(Object.keys(errors).length && { errors }),
   });
 });

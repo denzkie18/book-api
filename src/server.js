@@ -1,25 +1,14 @@
 const express = require("express");
 const booksRouter = require("./router/booksRouter");
 const seriesRouter = require("./router/seriesInfoRouter.js");
+const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.json({
-    message: "Welcome to the Book API",
-    endpoints: {
-      books: "/api/v0/novel",
-      latest: "/api/v0/novel/latest?page=1&perPage=10",
-      bookById: "/api/v0/novel/1016",
-      anilist: "/api/v0/novel/1016/anilist",
-      ranobedb: "/api/v0/novel/1016/ranobedb",
-      series: "/api/v0/novel/series/1016",
-    },
-  });
-});
+app.use(express.static(path.join(__dirname, "..", "public")));
 
 // Specific path first, otherwise "series" gets matched as a book :id.
 app.use("/api/v0/novel/series", seriesRouter);
