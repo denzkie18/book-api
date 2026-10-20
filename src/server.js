@@ -1,6 +1,7 @@
 const express = require("express");
 const booksRouter = require("./router/booksRouter");
 const seriesRouter = require("./router/seriesInfoRouter.js");
+const bookRouter = require("./router/bookInfoRouter");
 const path = require("path");
 
 const app = express();
@@ -12,6 +13,7 @@ app.use(express.static(path.join(__dirname, "..", "public")));
 
 // Specific path first, otherwise "series" gets matched as a book :id.
 app.use("/api/v0/novel/series", seriesRouter);
+app.use("/api/v0/novel/book", bookRouter);
 app.use("/api/v0/novel", booksRouter);
 
 // Unknown routes

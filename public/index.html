@@ -1,909 +1,256 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Quill API</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --bg: #13121c;
-        --panel: #1b1a27;
-        --panel2: #222133;
-        --line: #322f48;
-        --text: #ece9f6;
-        --muted: #9a96b4;
-        --accent: #f08aa8;
-        --ok: #6fd3a0;
-        --warn: #f0c36a;
-        --err: #f27b7b;
-        --serif: "Fraunces", Georgia, serif;
-        --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
-        color-scheme: dark;
-      }
-      * {
-        box-sizing: border-box;
-      }
-      html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 72px;
-      }
-      body {
-        margin: 0;
-        background: var(--bg);
-        color: var(--text);
-        font:
-          16px/1.6 system-ui,
-          -apple-system,
-          "Segoe UI",
-          sans-serif;
-      }
-      a {
-        color: inherit;
-      }
-      :focus-visible {
-        outline: 2px solid var(--accent);
-        outline-offset: 2px;
-      }
-      code,
-      pre,
-      input {
-        font-family: var(--mono);
-      }
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quill API</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#13121c; --panel:#1b1a27; --panel2:#222133; --line:#322f48;
+  --text:#ece9f6; --muted:#9a96b4; --accent:#f08aa8;
+  --ok:#6fd3a0; --warn:#f0c36a; --err:#f27b7b;
+  --serif:"Fraunces",Georgia,serif; --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+code,pre,input{font-family:var(--mono)}
 
-      .shell {
-        display: grid;
-        grid-template-columns: 240px minmax(0, 1fr);
-        max-width: 1240px;
-        margin: 0 auto;
-      }
-      nav {
-        position: sticky;
-        top: 0;
-        align-self: start;
-        height: 100vh;
-        overflow: auto;
-        padding: 28px 20px;
-        border-right: 1px solid var(--line);
-      }
-      nav h2 {
-        font: 700 1.4rem var(--serif);
-        margin: 0 0 4px;
-      }
-      nav p {
-        margin: 0 0 24px;
-        color: var(--muted);
-        font-size: 0.85rem;
-      }
-      nav h3 {
-        font-size: 0.85rem;
-        color: var(--muted);
-        font-weight: 500;
-        margin: 20px 0 6px;
-      }
-      nav a {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-        padding: 6px 8px;
-        border-radius: 6px;
-        text-decoration: none;
-        font-size: 0.88rem;
-        color: var(--text);
-      }
-      nav a:hover {
-        background: var(--panel2);
-      }
-      nav a b {
-        font: 500 0.7rem var(--mono);
-        color: var(--ok);
-        min-width: 30px;
-      }
+.shell{display:grid;grid-template-columns:240px minmax(0,1fr);max-width:1240px;margin:0 auto}
+nav{position:sticky;top:0;align-self:start;height:100vh;overflow:auto;padding:28px 20px;border-right:1px solid var(--line)}
+nav h2{font:700 1.4rem var(--serif);margin:0 0 4px}
+nav p{margin:0 0 24px;color:var(--muted);font-size:.85rem}
+nav h3{font-size:.85rem;color:var(--muted);font-weight:500;margin:20px 0 6px}
+nav a{display:flex;gap:8px;align-items:center;padding:6px 8px;border-radius:6px;text-decoration:none;font-size:.88rem;color:var(--text)}
+nav a:hover{background:var(--panel2)}
+nav a b{font:500 .7rem var(--mono);color:var(--ok);min-width:30px}
 
-      main {
-        padding: 40px 32px 80px;
-        min-width: 0;
-      }
-      .hero h1 {
-        font: 700 clamp(2rem, 5vw, 3.2rem)/1.1 var(--serif);
-        margin: 0 0 12px;
-        letter-spacing: -0.01em;
-      }
-      .hero p {
-        max-width: 60ch;
-        color: var(--muted);
-        margin: 0 0 20px;
-      }
-      .base {
-        display: inline-flex;
-        gap: 10px;
-        align-items: center;
-        background: var(--panel);
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        padding: 8px 14px;
-        font: 0.9rem var(--mono);
-        max-width: 100%;
-        overflow-x: auto;
-      }
-      .base span {
-        color: var(--muted);
-      }
-      .codes {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin: 24px 0 8px;
-      }
-      .chip {
-        display: inline-flex;
-        gap: 6px;
-        align-items: baseline;
-        padding: 4px 10px;
-        border-radius: 999px;
-        border: 1px solid var(--line);
-        background: var(--panel);
-        font-size: 0.8rem;
-        color: var(--muted);
-      }
-      .chip b {
-        font: 500 0.8rem var(--mono);
-      }
-      .s2 {
-        color: var(--ok);
-      }
-      .s4 {
-        color: var(--warn);
-      }
-      .s5 {
-        color: var(--err);
-      }
+main{padding:40px 32px 80px;min-width:0}
+.hero h1{font:700 clamp(2rem,5vw,3.2rem)/1.1 var(--serif);margin:0 0 12px;letter-spacing:-.01em}
+.hero p{max-width:60ch;color:var(--muted);margin:0 0 20px}
+.base{display:inline-flex;gap:10px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 14px;font:.9rem var(--mono);max-width:100%;overflow-x:auto}
+.base span{color:var(--muted)}
+.codes{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 8px}
+.chip{display:inline-flex;gap:6px;align-items:baseline;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--panel);font-size:.8rem;color:var(--muted)}
+.chip b{font:500 .8rem var(--mono)}
+.s2{color:var(--ok)} .s4{color:var(--warn)} .s5{color:var(--err)}
 
-      h2.group {
-        font: 700 1.6rem var(--serif);
-        margin: 56px 0 4px;
-      }
-      .group-note {
-        color: var(--muted);
-        margin: 0 0 8px;
-        max-width: 62ch;
-      }
+h2.group{font:700 1.6rem var(--serif);margin:56px 0 4px}
+.group-note{color:var(--muted);margin:0 0 8px;max-width:62ch}
 
-      .ep {
-        margin-top: 28px;
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        background: var(--panel);
-        overflow: hidden;
-      }
-      .ep header {
-        padding: 18px 20px 14px;
-        border-bottom: 1px solid var(--line);
-      }
-      .ep h3 {
-        font: 700 1.15rem var(--serif);
-        margin: 0 0 8px;
-      }
-      .route {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        font: 0.92rem var(--mono);
-        overflow-x: auto;
-        white-space: nowrap;
-      }
-      .method {
-        background: rgba(111, 211, 160, 0.14);
-        color: var(--ok);
-        padding: 2px 8px;
-        border-radius: 5px;
-        font-weight: 500;
-      }
-      .route em {
-        font-style: normal;
-        color: var(--accent);
-      }
-      .ep header p {
-        margin: 10px 0 0;
-        color: var(--muted);
-        font-size: 0.93rem;
-      }
-      .params {
-        margin: 0;
-        padding: 12px 20px;
-        border-bottom: 1px solid var(--line);
-        font-size: 0.88rem;
-        display: grid;
-        grid-template-columns: max-content 1fr;
-        gap: 4px 16px;
-      }
-      .params dt {
-        font: 0.85rem var(--mono);
-        color: var(--accent);
-      }
-      .params dt small {
-        color: var(--muted);
-        margin-left: 6px;
-      }
-      .params dd {
-        margin: 0;
-        color: var(--muted);
-      }
-      .panes {
-        display: grid;
-        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-      }
-      .pane {
-        padding: 16px 20px;
-        min-width: 0;
-      }
-      .pane + .pane {
-        border-left: 1px solid var(--line);
-        background: var(--panel2);
-      }
-      .pane h4 {
-        margin: 0 0 10px;
-        font-size: 0.85rem;
-        color: var(--muted);
-        font-weight: 500;
-      }
-      .try {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-      .try input {
-        width: 100%;
-        background: var(--bg);
-        color: var(--text);
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        padding: 9px 11px;
-        font-size: 0.85rem;
-      }
-      .try button {
-        align-self: flex-start;
-        background: var(--accent);
-        color: #2a1220;
-        border: 0;
-        border-radius: 8px;
-        padding: 8px 16px;
-        font: 600 0.9rem system-ui;
-        cursor: pointer;
-      }
-      .try button:hover {
-        filter: brightness(1.08);
-      }
-      .try button:disabled {
-        opacity: 0.6;
-        cursor: wait;
-      }
-      .curl {
-        margin-top: 14px;
-        background: var(--bg);
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        padding: 10px 12px;
-        font-size: 0.8rem;
-        overflow-x: auto;
-        color: var(--muted);
-        white-space: pre;
-      }
-      .tabs {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-        margin-bottom: 10px;
-      }
-      .tabs button {
-        background: transparent;
-        border: 1px solid var(--line);
-        border-radius: 6px;
-        padding: 3px 10px;
-        color: var(--muted);
-        font: 500 0.8rem var(--mono);
-        cursor: pointer;
-      }
-      .tabs button[aria-selected="true"] {
-        background: var(--bg);
-        color: var(--text);
-        border-color: var(--muted);
-      }
-      .tabs button.live[aria-selected="true"] {
-        border-color: var(--accent);
-      }
-      .status {
-        display: flex;
-        gap: 12px;
-        align-items: baseline;
-        margin-bottom: 8px;
-        font: 0.85rem var(--mono);
-      }
-      .status .meta {
-        color: var(--muted);
-      }
-      pre {
-        margin: 0;
-        background: var(--bg);
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        padding: 12px;
-        font-size: 0.8rem;
-        line-height: 1.55;
-        max-height: 340px;
-        overflow: auto;
-        tab-size: 2;
-      }
-      .k {
-        color: #9ec2ff;
-      }
-      .s {
-        color: #b5e3a8;
-      }
-      .n {
-        color: #f0c36a;
-      }
-      .b {
-        color: var(--accent);
-      }
+.ep{margin-top:28px;border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
+.ep header{padding:18px 20px 14px;border-bottom:1px solid var(--line)}
+.ep h3{font:700 1.15rem var(--serif);margin:0 0 8px}
+.route{display:flex;gap:10px;align-items:center;font:.92rem var(--mono);overflow-x:auto;white-space:nowrap}
+.method{background:rgba(111,211,160,.14);color:var(--ok);padding:2px 8px;border-radius:5px;font-weight:500}
+.route em{font-style:normal;color:var(--accent)}
+.ep header p{margin:10px 0 0;color:var(--muted);font-size:.93rem}
+.params{margin:0;padding:12px 20px;border-bottom:1px solid var(--line);font-size:.88rem;display:grid;grid-template-columns:max-content 1fr;gap:4px 16px}
+.params dt{font:.85rem var(--mono);color:var(--accent)}
+.params dt small{color:var(--muted);margin-left:6px}
+.params dd{margin:0;color:var(--muted)}
+.panes{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+.pane{padding:16px 20px;min-width:0}
+.pane + .pane{border-left:1px solid var(--line);background:var(--panel2)}
+.pane h4{margin:0 0 10px;font-size:.85rem;color:var(--muted);font-weight:500}
+.try{display:flex;flex-direction:column;gap:10px}
+.try input{width:100%;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:9px 11px;font-size:.85rem}
+.try button{align-self:flex-start;background:var(--accent);color:#2a1220;border:0;border-radius:8px;padding:8px 16px;font:600 .9rem system-ui;cursor:pointer}
+.try button:hover{filter:brightness(1.08)}
+.try button:disabled{opacity:.6;cursor:wait}
+.curl{margin-top:14px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:.8rem;overflow-x:auto;color:var(--muted);white-space:pre}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.tabs button{background:transparent;border:1px solid var(--line);border-radius:6px;padding:3px 10px;color:var(--muted);font:500 .8rem var(--mono);cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--bg);color:var(--text);border-color:var(--muted)}
+.tabs button.live[aria-selected=true]{border-color:var(--accent)}
+.status{display:flex;gap:12px;align-items:baseline;margin-bottom:8px;font:.85rem var(--mono)}
+.status .meta{color:var(--muted)}
+pre{margin:0;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px;font-size:.8rem;line-height:1.55;max-height:340px;overflow:auto;tab-size:2}
+.k{color:#9ec2ff} .s{color:#b5e3a8} .n{color:#f0c36a} .b{color:var(--accent)}
 
-      @media (max-width: 900px) {
-        .shell {
-          display: block;
-        }
-        nav {
-          position: sticky;
-          z-index: 5;
-          height: auto;
-          display: flex;
-          gap: 6px;
-          overflow-x: auto;
-          padding: 10px 12px;
-          background: var(--bg);
-          border: 0;
-          border-bottom: 1px solid var(--line);
-          white-space: nowrap;
-          align-items: center;
-        }
-        nav h2,
-        nav p,
-        nav h3 {
-          display: none;
-        }
-        nav a {
-          background: var(--panel);
-          border: 1px solid var(--line);
-          flex: none;
-        }
-        main {
-          padding: 28px 16px 64px;
-        }
-        .panes {
-          grid-template-columns: 1fr;
-        }
-        .pane + .pane {
-          border-left: 0;
-          border-top: 1px solid var(--line);
-        }
-        .params {
-          grid-template-columns: 1fr;
-        }
-        .params dd {
-          margin-bottom: 6px;
-        }
-      }
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="shell">
-      <nav id="nav" aria-label="Endpoints">
-        <h2>Quill API</h2>
-        <p>Light novel data</p>
-      </nav>
-      <main>
-        <section class="hero">
-          <h1>Quill API</h1>
-          <p>
-            Look up light novels, then pull series details from AniList and
-            RanobeDB through one request. Every endpoint below shows the
-            responses it can return, and you can send real requests to this
-            server.
-          </p>
-          <div class="base"><span>Base URL</span><code id="base"></code></div>
-          <div class="codes" id="legend"></div>
-        </section>
-        <div id="docs"></div>
-      </main>
-    </div>
+@media (max-width:900px){
+  .shell{display:block}
+  nav{position:sticky;z-index:5;height:auto;display:flex;gap:6px;overflow-x:auto;padding:10px 12px;background:var(--bg);border:0;border-bottom:1px solid var(--line);white-space:nowrap;align-items:center}
+  nav h2,nav p,nav h3{display:none}
+  nav a{background:var(--panel);border:1px solid var(--line);flex:none}
+  main{padding:28px 16px 64px}
+  .panes{grid-template-columns:1fr}
+  .pane + .pane{border-left:0;border-top:1px solid var(--line)}
+  .params{grid-template-columns:1fr}
+  .params dd{margin-bottom:6px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav id="nav" aria-label="Endpoints"><h2>Quill API</h2><p>Light novel data</p></nav>
+  <main>
+    <section class="hero">
+      <h1>Quill API</h1>
+      <p>Look up light novels, then pull series details from AniList and RanobeDB through one request. Every endpoint below shows the responses it can return, and you can send real requests to this server.</p>
+      <div class="base"><span>Base URL</span><code id="base"></code></div>
+      <div class="codes" id="legend"></div>
+    </section>
+    <div id="docs"></div>
+  </main>
+</div>
 
-    <script>
-      const STATUS = {
-        200: "OK",
-        400: "Bad Request",
-        404: "Not Found",
-        429: "Too Many Requests",
-        500: "Internal Server Error",
-        502: "Bad Gateway",
-        504: "Gateway Timeout",
-      };
-      const cls = (c) => "s" + String(c)[0];
+<script>
+const STATUS = {200:"OK",400:"Bad Request",404:"Not Found",429:"Too Many Requests",500:"Internal Server Error",502:"Bad Gateway",504:"Gateway Timeout"};
+const cls = c => "s" + String(c)[0];
 
-      const book = {
-        id: 1016,
-        title:
-          "7th Time Loop: The Villainess Enjoys a Carefree Life Married to Her Worst Enemy! Short Story Collection",
-        coverUrl:
-          "https://static.wikia.nocookie.net/…/7TL_Short_Story_Collection_Japanese_Cover.jpg",
-        publishers: [
-          {
-            name: "Seven Seas Entertainment",
-            site: "https://sevenseasentertainment.com/",
-            siteLink: "https://sevenseasentertainment.com/books/…",
-          },
-        ],
-        volume: 1,
-        bookCloudId: "1_SWO236R8jXQ8W_9LhG1jAFXLEYWuHXp",
-        providers: [
-          { name: "Anilist", id: 200957 },
-          { name: "RanobeDB", id: 11430 },
-        ],
-        bookProvider: { name: "RanobeDB", id: 46938 },
-      };
-      const idErr = [
-        { code: 400, body: { message: "Book ID must be a positive integer." } },
-        { code: 404, body: { message: "Book not found." } },
-      ];
-      const providerErrs = (name) => [
-        {
-          code: 404,
-          body: {
-            message: `This book does not have ${name === "AniList" ? "an" : "a"} ${name} provider.`,
-          },
-        },
-        {
-          code: 429,
-          body: { message: `${name} rate limit reached. Try again later.` },
-          note: "Includes a Retry-After header when the provider sends one.",
-        },
-        { code: 502, body: { message: `Unable to connect to ${name}.` } },
-        { code: 504, body: { message: `${name} request timed out.` } },
-        { code: 500, body: { message: "An unexpected error occurred." } },
-      ];
-      const idParam = [
-        "id",
-        "path",
-        "Local book ID from this API, a positive integer such as 1016.",
-      ];
+const cover = "https://static.wikia.nocookie.net/…";
+const sevenSeas = {name:"Seven Seas Entertainment",site:"https://sevenseasentertainment.com/",siteLink:"https://sevenseasentertainment.com/books/…"};
+const b1010 = {id:1010,title:"7th Time Loop: The Villainess Enjoys a Carefree Life Married to Her Worst Enemy!",genres:["Fantasy","Romance"],coverUrl:cover,publishers:[sevenSeas],volume:1,bookCloudId:"1S7_a30lGoF1OfuI30RmoNMhcQ7koXY0k",providers:[{name:"Anilist",id:129152},{name:"RanobeDB",id:11430}],bookProvider:{name:"RanobeDB",id:30523}};
+const wild1001 = {id:1001,title:"A Wild Last Boss Appeared",genres:["Action","Adventure","Fantasy"],coverUrl:cover,publishers:[{name:"J-Novel Club",site:"https://j-novel.club/",siteLink:"https://j-novel.club/series/a-wild-last-boss-appeared#volume-1"}],volume:1,bookCloudId:"1cZ0sfyMoc0v5JsaFuoSAPGeFPx6SMjrX",providers:[{name:"Anilist",id:101829},{name:"RanobeDB",id:5308}],bookProvider:{name:"RanobeDB",id:16742}};
+const tamer1044 = {id:1044,title:"A Late-Start Tamer’s Laid-Back Life",genres:["Adventure","Comedy","Fantasy"],coverUrl:cover,publishers:[{name:"J-Novel Club",site:"https://j-novel.club/",siteLink:"https://j-novel.club/series/a-late-start-tamer-s-laid-back-life"}],volume:13,bookCloudId:"1XXt62IbrmsH7PRrqraFs7vo1l_sra_Is",providers:[{name:"Anilist",id:105867},{name:"RanobeDB",id:8080}],bookProvider:{name:"RanobeDB",id:45021}};
+const tamer1043 = {...tamer1044,id:1043,volume:12,bookCloudId:"1o234WbwdplahNcxjwibLqQPAj_u2zs3k",bookProvider:{name:"RanobeDB",id:40560}};
+const seriesBooks = [{id:1010,title:"7th Time Loop: …",volume:1,coverUrl:cover},{id:1011,title:"7th Time Loop: …",volume:2,coverUrl:cover},"…"];
 
-      const GROUPS = [
-        {
-          title: "Books",
-          note: "Local catalogue of volumes, plus raw lookups for a single volume.",
-          eps: [
-            {
-              id: "list",
-              title: "Search books",
-              path: "/api/v0/novel",
-              example: "/api/v0/novel?q=7th%20Time%20Loop",
-              desc: "Lists every book. Add q to filter by title.",
-              params: [
-                ["q", "query", "Optional. Case-insensitive part of a title."],
-              ],
-              res: [
-                { code: 200, body: { total: 1, books: [book] } },
-                {
-                  code: 400,
-                  body: { message: "The q parameter must be a string." },
-                },
-              ],
-            },
-            {
-              id: "latest",
-              title: "Latest books",
-              path: "/api/v0/novel/latest",
-              example: "/api/v0/novel/latest?page=1&perPage=2",
-              desc: "Newest books first, paginated by local ID.",
-              params: [
-                ["page", "query", "Optional. Starts at 1. Default 1."],
-                ["perPage", "query", "Optional. 1 to 100. Default 10."],
-              ],
-              res: [
-                {
-                  code: 200,
-                  body: {
-                    page: 1,
-                    perPage: 2,
-                    total: 16,
-                    totalPages: 8,
-                    hasNextPage: true,
-                    books: [book, "…"],
-                  },
-                },
-                {
-                  code: 400,
-                  body: {
-                    message: "page and perPage must be positive integers.",
-                  },
-                },
-                {
-                  code: 400,
-                  body: {
-                    message:
-                      "page must be a safe positive integer and perPage must be between 1 and 100.",
-                  },
-                },
-              ],
-            },
-            {
-              id: "book",
-              title: "Get one book",
-              path: "/api/v0/novel/:id",
-              example: "/api/v0/novel/1016",
-              desc: "Returns a single book exactly as stored.",
-              params: [idParam],
-              res: [{ code: 200, body: book }, ...idErr],
-            },
-            {
-              id: "book-anilist",
-              title: "Book on AniList",
-              path: "/api/v0/novel/:id/anilist",
-              example: "/api/v0/novel/1016/anilist",
-              desc: "Fetches the book’s AniList entry as AniList returns it.",
-              params: [idParam],
-              res: [
-                {
-                  code: 200,
-                  body: {
-                    bookId: 1016,
-                    anilist: {
-                      id: 200957,
-                      title: {
-                        english: "7th Time Loop: … Short Story Collection",
-                      },
-                      format: "NOVEL",
-                      "…": "more AniList fields",
-                    },
-                  },
-                },
-                ...idErr,
-                ...providerErrs("AniList"),
-              ],
-            },
-            {
-              id: "book-ranobedb",
-              title: "Book on RanobeDB",
-              path: "/api/v0/novel/:id/ranobedb",
-              example: "/api/v0/novel/1016/ranobedb",
-              desc: "Fetches the volume’s RanobeDB entry as RanobeDB returns it.",
-              params: [idParam],
-              res: [
-                {
-                  code: 200,
-                  body: {
-                    bookId: 1016,
-                    ranobedb: {
-                      id: 46938,
-                      title: "… Short Story Collection",
-                      book_type: "sub",
-                      "…": "more RanobeDB fields",
-                    },
-                  },
-                },
-                ...idErr,
-                ...providerErrs("RanobeDB"),
-              ],
-            },
-          ],
-        },
-        {
-          title: "Series",
-          note: "Series-level data. Any volume ID in a series returns the same series.",
-          eps: [
-            {
-              id: "series",
-              title: "Series overview",
-              path: "/api/v0/novel/series/:id",
-              example: "/api/v0/novel/series/1016",
-              desc: "AniList series data with status, volumes, publishers, website and webNovel taken from RanobeDB, plus the local books in the series. If one provider fails, you still get the other plus an errors object.",
-              params: [idParam],
-              res: [
-                {
-                  code: 200,
-                  body: {
-                    bookId: 1016,
-                    series: {
-                      id: 129152,
-                      title: {
-                        english:
-                          "7th Time Loop: The Villainess Enjoys a Carefree Life Married to Her Worst Enemy!",
-                      },
-                      status: "ongoing",
-                      volumes: 6,
-                      publishers: [
-                        {
-                          id: 12,
-                          name: "Seven Seas Entertainment",
-                          publisher_type: "publisher",
-                          lang: "en",
-                        },
-                      ],
-                      website: "https://over-lap.co.jp/narou/865547672/",
-                      webNovel: "https://ncode.syosetu.com/n1784ga/",
-                      "…": "other AniList fields",
-                    },
-                    totalBooks: 7,
-                    books: [
-                      {
-                        id: 1010,
-                        title: "7th Time Loop: …",
-                        volume: 1,
-                        coverUrl: "https://static.wikia.nocookie.net/…",
-                      },
-                      "…",
-                    ],
-                  },
-                },
-                {
-                  code: 200,
-                  note: "One provider failed. Data from the other still comes back.",
-                  body: {
-                    bookId: 1016,
-                    series: { "…": "AniList fields only" },
-                    totalBooks: 7,
-                    books: ["…"],
-                    errors: { ranobedb: "RanobeDB request timed out." },
-                  },
-                },
-                ...idErr,
-                {
-                  code: 404,
-                  body: {
-                    message:
-                      "This book does not have an AniList or RanobeDB provider.",
-                  },
-                },
-                {
-                  code: 429,
-                  body: {
-                    message: "RanobeDB rate limit reached. Try again later.",
-                  },
-                  note: "Only when both providers fail.",
-                },
-                {
-                  code: 500,
-                  body: { message: "An unexpected error occurred." },
-                },
-              ],
-            },
-            {
-              id: "series-anilist",
-              title: "Series on AniList",
-              path: "/api/v0/novel/series/:id/anilist",
-              example: "/api/v0/novel/series/1016/anilist",
-              desc: "The series’ original AniList data, unchanged.",
-              params: [idParam],
-              res: [
-                {
-                  code: 200,
-                  body: {
-                    bookId: 1016,
-                    provider: "Anilist",
-                    series: {
-                      id: 129152,
-                      format: "NOVEL",
-                      "…": "more AniList fields",
-                    },
-                  },
-                },
-                ...idErr,
-                ...providerErrs("AniList"),
-              ],
-            },
-            {
-              id: "series-ranobedb",
-              title: "Series on RanobeDB",
-              path: "/api/v0/novel/series/:id/ranobedb",
-              example: "/api/v0/novel/series/1016/ranobedb",
-              desc: "The series’ original RanobeDB data, unchanged.",
-              params: [idParam],
-              res: [
-                {
-                  code: 200,
-                  body: {
-                    bookId: 1016,
-                    provider: "RanobeDB",
-                    series: {
-                      id: 11430,
-                      publication_status: "ongoing",
-                      books: ["…"],
-                      "…": "more RanobeDB fields",
-                    },
-                  },
-                },
-                ...idErr,
-                ...providerErrs("RanobeDB"),
-              ],
-            },
-          ],
-        },
-      ];
+const aniBase = {id:129152,idMal:132505,title:{romaji:"Loop 7-kaime no Akuyaku Reijou wa, …",english:"7th Time Loop: The Villainess Enjoys a Carefree Life Married to Her Worst Enemy!",userPreferred:"Loop 7-kaime no Akuyaku Reijou wa, …"},coverImage:{medium:"https://s4.anilist.co/…/bx129152-YSmWEprDzkha.jpg",large:"https://s4.anilist.co/…/bx129152-YSmWEprDzkha.jpg",extraLarge:"https://s4.anilist.co/…/bx129152-YSmWEprDzkha.jpg",color:"#50bbf1"},bannerImage:null};
+const aniRest = {staff:{edges:["…"]},startDate:{year:2020,month:10,day:25},endDate:{year:null,month:null,day:null},chapters:null,genres:["Fantasy","Romance"],tags:[{id:1596,name:"Time Loop",category:"Theme-Sci-Fi",rank:79},"…"],isLicensed:true};
+const aniMore = "relations, characters, externalLinks, rankings, recommendations and the other AniList fields";
 
-      const esc = (s) =>
-        s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-      const hl = (s) =>
-        esc(s).replace(
-          /("(?:\\.|[^"\\])*")(\s*:)?|\b(true|false|null)\b|-?\b\d+(?:\.\d+)?\b/g,
-          (m, str, colon, kw) =>
-            str
-              ? colon
-                ? `<span class="k">${str}</span>${colon}`
-                : `<span class="s">${str}</span>`
-              : kw
-                ? `<span class="b">${m}</span>`
-                : `<span class="n">${m}</span>`,
-        );
-      const h = (tag, attrs = {}, html = "") => {
-        const e = document.createElement(tag);
-        Object.entries(attrs).forEach(([k, v]) => e.setAttribute(k, v));
-        e.innerHTML = html;
-        return e;
-      };
+const idErr = [{code:400,body:{message:"Book ID must be a positive integer."}},{code:404,body:{message:"Book not found."}}];
+const idParam = ["id","path","Local book ID from this API, a positive integer such as 1010."];
 
-      document.getElementById("base").textContent = location.origin;
-      document.getElementById("legend").innerHTML = Object.entries(STATUS)
-        .map(
-          ([c, t]) =>
-            `<span class="chip"><b class="${cls(c)}">${c}</b>${t}</span>`,
-        )
-        .join("");
+const GROUPS = [
+ {title:"Books",note:"Search the local catalogue, page through the newest volumes, or open one volume with its AniList details.",eps:[
+  {id:"list",title:"Search books",path:"/api/v0/novel",example:"/api/v0/novel?q=wild",
+   examples:[["All books","/api/v0/novel"],["Title: wild","/api/v0/novel?q=wild"],["Genre: romance","/api/v0/novel?genres=romance&match=any"]],
+   desc:"Lists books from the catalogue. Searching by title or genres returns one book per series, preferring volume 1. To see every volume of a series, open it under Series.",
+   params:[["q","query","Optional. Case-insensitive part of a title."],["genres","query","Optional. Comma-separated, such as fantasy,romance. Case-insensitive."],["match","query","Optional. all (default) needs every genre. any needs at least one."]],
+   res:[{code:200,label:"title",note:"?q=wild returns volume 1 only.",body:{total:1,books:[wild1001]}},
+        {code:200,label:"genre",note:"?genres=romance&match=any returns volume 1 of each matching series.",body:{total:1,books:[b1010]}},
+        {code:200,label:"no filter",note:"No q or genres: every volume is listed.",body:{total:44,books:[tamer1044,"…"]}},
+        {code:400,body:{message:"The q parameter must be a string."}},
+        {code:400,body:{message:"The genres parameter must be a comma-separated string."}},
+        {code:400,body:{message:'The match parameter must be "all" or "any".'}}]},
+  {id:"latest",title:"Latest books",path:"/api/v0/novel/latest",example:"/api/v0/novel/latest",
+   examples:[["Default","/api/v0/novel/latest"],["Page 2, 5 per page","/api/v0/novel/latest?page=2&perPage=5"]],
+   desc:"Newest books first, by local ID, with pagination.",
+   params:[["page","query","Optional. Starts at 1. Default 1."],["perPage","query","Optional. 1 to 100. Default 10."]],
+   res:[{code:200,body:{page:1,perPage:10,total:44,totalPages:5,hasNextPage:true,books:[tamer1044,tamer1043,"…"]}},
+        {code:400,body:{message:"page and perPage must be positive integers."}},
+        {code:400,body:{message:"page must be a safe positive integer and perPage must be between 1 and 100."}}]},
+  {id:"book-info",title:"Book overview",path:"/api/v0/novel/book/:id",example:"/api/v0/novel/book/1010",
+   desc:"The AniList entry for the volume, with cover, publishers and volume number from the catalogue and the description from RanobeDB, plus the other books in the same series. If a provider fails, the rest still returns with an errors object.",
+   params:[idParam],
+   res:[{code:200,body:{bookId:1010,book:{...aniBase,status:"RELEASING",format:"NOVEL",...aniRest,volumes:null,description:"Reincarnation drama gets sent into overdrive in this tale full of romance and scheming…","…":aniMore,bookCloudId:"1S7_a30lGoF1OfuI30RmoNMhcQ7koXY0k",publishers:[sevenSeas],coverUrl:cover,volume:1},totalBooks:7,books:seriesBooks}},
+        {code:200,label:"partial",note:"RanobeDB failed. The AniList description is kept.",body:{bookId:1010,book:{...aniBase,status:"RELEASING",description:"If you think being reincarnated once is a big deal, try seven times…","…":"other AniList and catalogue fields"},totalBooks:7,books:seriesBooks,errors:{ranobedb:"RanobeDB request timed out."}}},
+        ...idErr]}
+ ]},
+ {title:"Series",note:"Series-level data. Any volume ID in a series returns the same series.",eps:[
+  {id:"series",title:"Series overview",path:"/api/v0/novel/series/:id",example:"/api/v0/novel/series/1010",
+   desc:"The AniList series data, with status, volumes, publishers, website and webNovel replaced by RanobeDB’s, plus every local book in the series. If one provider fails, you still get the other plus an errors object.",
+   params:[idParam],
+   res:[{code:200,body:{bookId:1010,series:{...aniBase,status:"ongoing",format:"NOVEL",...aniRest,volumes:6,description:"If you think being reincarnated once is a big deal, try seven times…","…":aniMore,publishers:[{id:12,name:"Seven Seas Entertainment",publisher_type:"publisher",lang:"en"},"…"],website:"https://over-lap.co.jp/narou/865547672/",webNovel:"https://ncode.syosetu.com/n1784ga/"},totalBooks:7,books:seriesBooks}},
+        {code:200,label:"partial",note:"One provider failed. The other still returns.",body:{bookId:1010,series:{"…":"AniList fields only"},totalBooks:7,books:seriesBooks,errors:{ranobedb:"RanobeDB request timed out."}}},
+        ...idErr,
+        {code:404,body:{message:"This book does not have an AniList or RanobeDB provider."}},
+        {code:429,body:{message:"RanobeDB rate limit reached. Try again later."},note:"Only when both providers fail. Includes a Retry-After header."},
+        {code:500,body:{message:"An unexpected error occurred."}}]}
+ ]}
+];
 
-      const nav = document.getElementById("nav"),
-        docs = document.getElementById("docs");
+const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const hl = s => esc(s).replace(/("(?:\\.|[^"\\])*")(\s*:)?|\b(true|false|null)\b|-?\b\d+(?:\.\d+)?\b/g,
+  (m,str,colon,kw) => str ? (colon ? `<span class="k">${str}</span>${colon}` : `<span class="s">${str}</span>`) : kw ? `<span class="b">${m}</span>` : `<span class="n">${m}</span>`);
+const h = (tag, attrs = {}, html = "") => { const e = document.createElement(tag); Object.entries(attrs).forEach(([k,v]) => e.setAttribute(k,v)); e.innerHTML = html; return e; };
 
-      GROUPS.forEach((g) => {
-        nav.append(h("h3", {}, g.title));
-        docs.append(
-          h("h2", { class: "group" }, g.title),
-          h("p", { class: "group-note" }, g.note),
-        );
+document.getElementById("base").textContent = location.origin;
+document.getElementById("legend").innerHTML = Object.entries(STATUS).map(([c,t]) => `<span class="chip"><b class="${cls(c)}">${c}</b>${t}</span>`).join("");
 
-        g.eps.forEach((ep) => {
-          nav.append(h("a", { href: "#" + ep.id }, `<b>GET</b>${ep.title}`));
+const nav = document.getElementById("nav"), docs = document.getElementById("docs");
 
-          const card = h("article", { class: "ep", id: ep.id });
-          const route = ep.path.replace(/:(\w+)/g, "<em>:$1</em>");
-          card.append(
-            h(
-              "header",
-              {},
-              `<h3>${ep.title}</h3><div class="route"><span class="method">GET</span><code>${route}</code></div><p>${ep.desc}</p>`,
-            ),
-          );
+GROUPS.forEach(g => {
+  nav.append(h("h3", {}, g.title));
+  docs.append(h("h2", {class:"group"}, g.title), h("p", {class:"group-note"}, g.note));
 
-          const dl = h("dl", { class: "params" });
-          ep.params.forEach((p) => {
-            dl.append(
-              h("dt", {}, `${p[0]}<small>${p[1]}</small>`),
-              h("dd", {}, p[2]),
-            );
-          });
-          card.append(dl);
+  g.eps.forEach(ep => {
+    nav.append(h("a", {href:"#"+ep.id}, `<b>GET</b>${ep.title}`));
 
-          // Request pane
-          const reqPane = h("div", { class: "pane" }, `<h4>Request</h4>`);
-          const form = h("div", { class: "try" });
-          const input = h("input", {
-            value: ep.example,
-            "aria-label": "Request path",
-            spellcheck: "false",
-          });
-          const send = h("button", { type: "button" }, "Send request");
-          const curl = h("div", { class: "curl" });
-          const setCurl = () =>
-            (curl.textContent = `curl -i ${location.origin}${input.value}`);
-          input.addEventListener("input", setCurl);
-          setCurl();
-          form.append(input, send);
-          reqPane.append(form, curl);
+    const card = h("article", {class:"ep", id:ep.id});
+    const route = ep.path.replace(/:(\w+)/g, "<em>:$1</em>");
+    card.append(h("header", {}, `<h3>${ep.title}</h3><div class="route"><span class="method">GET</span><code>${route}</code></div><p>${ep.desc}</p>`));
 
-          // Response pane
-          const resPane = h("div", { class: "pane" }, `<h4>Responses</h4>`);
-          const tabs = h("div", { class: "tabs", role: "tablist" });
-          const out = h("div");
-          resPane.append(tabs, out);
+    const dl = h("dl", {class:"params"});
+    ep.params.forEach(p => { dl.append(h("dt", {}, `${p[0]}<small>${p[1]}</small>`), h("dd", {}, p[2])); });
+    card.append(dl);
 
-          const show = (btn, render) => {
-            tabs
-              .querySelectorAll("button")
-              .forEach((b) => b.setAttribute("aria-selected", b === btn));
-            out.innerHTML = "";
-            render();
-          };
-          ep.res.forEach((r, i) => {
-            const btn = h(
-              "button",
-              { role: "tab", "aria-selected": "false" },
-              `<span class="${cls(r.code)}">${r.code}</span>${ep.res.filter((x) => x.code === r.code).length > 1 ? " #" + ep.res.filter((x, j) => x.code === r.code && j <= i).length : ""}`,
-            );
-            btn.addEventListener("click", () =>
-              show(btn, () => {
-                out.append(
-                  h(
-                    "div",
-                    { class: "status" },
-                    `<b class="${cls(r.code)}">${r.code} ${STATUS[r.code]}</b><span class="meta">${r.note || "Sample"}</span>`,
-                  ),
-                  h("pre", {}, hl(JSON.stringify(r.body, null, 2))),
-                );
-              }),
-            );
-            tabs.append(btn);
-            if (i === 0) btn.click();
-          });
-
-          let liveBtn;
-          send.addEventListener("click", async () => {
-            send.disabled = true;
-            send.textContent = "Sending…";
-            if (!liveBtn) {
-              liveBtn = h(
-                "button",
-                { role: "tab", class: "live", "aria-selected": "false" },
-                "Live",
-              );
-              tabs.append(liveBtn);
-            }
-            const t0 = performance.now();
-            let status, text, ms;
-            try {
-              const r = await fetch(input.value);
-              status = r.status;
-              text = await r.text();
-            } catch (e) {
-              status = 0;
-              text = JSON.stringify({
-                message: "Could not reach the server. Is it running?",
-              });
-            }
-            ms = Math.round(performance.now() - t0);
-            let body = text;
-            try {
-              body = JSON.stringify(JSON.parse(text), null, 2);
-            } catch {}
-            const label = status
-              ? `${status} ${STATUS[status] || ""}`
-              : "Network error";
-            liveBtn.onclick = () =>
-              show(liveBtn, () => {
-                out.append(
-                  h(
-                    "div",
-                    { class: "status" },
-                    `<b class="${status ? cls(status) : "s5"}">${label}</b><span class="meta">${ms} ms, live</span>`,
-                  ),
-                  h("pre", {}, hl(body)),
-                );
-              });
-            liveBtn.click();
-            send.disabled = false;
-            send.textContent = "Send request";
-          });
-
-          card.append(h("div", { class: "panes" }));
-          card.lastChild.append(reqPane, resPane);
-          docs.append(card);
-        });
+    // Request pane
+    const reqPane = h("div", {class:"pane"}, `<h4>Request</h4>`);
+    const form = h("div", {class:"try"});
+    const input = h("input", {value:ep.example, "aria-label":"Request path", spellcheck:"false"});
+    const send = h("button", {type:"button"}, "Send request");
+    const curl = h("div", {class:"curl"});
+    const setCurl = () => curl.textContent = `curl -i ${location.origin}${input.value}`;
+    input.addEventListener("input", setCurl); setCurl();
+    form.append(input, send); reqPane.append(form);
+    if (ep.examples) {
+      const ex = h("div", {class:"tabs"});
+      ep.examples.forEach(([label, path]) => {
+        const b = h("button", {type:"button"}, label);
+        b.addEventListener("click", () => { input.value = path; setCurl(); });
+        ex.append(b);
       });
-    </script>
-  </body>
+      reqPane.append(ex);
+    }
+    reqPane.append(curl);
+
+    // Response pane
+    const resPane = h("div", {class:"pane"}, `<h4>Responses</h4>`);
+    const tabs = h("div", {class:"tabs", role:"tablist"});
+    const out = h("div");
+    resPane.append(tabs, out);
+
+    const show = (btn, render) => {
+      tabs.querySelectorAll("button").forEach(b => b.setAttribute("aria-selected", b === btn));
+      out.innerHTML = ""; render();
+    };
+    ep.res.forEach((r, i) => {
+      const btn = h("button", {role:"tab", "aria-selected":"false"}, `<span class="${cls(r.code)}">${r.code}</span>${r.label ? " " + esc(r.label) : ep.res.filter(x => x.code === r.code).length > 1 ? " #" + (ep.res.filter((x,j) => x.code === r.code && j <= i).length) : ""}`);
+      btn.addEventListener("click", () => show(btn, () => {
+        out.append(h("div", {class:"status"}, `<b class="${cls(r.code)}">${r.code} ${STATUS[r.code]}</b><span class="meta">${r.note || "Sample"}</span>`),
+                   h("pre", {}, hl(JSON.stringify(r.body, null, 2))));
+      }));
+      tabs.append(btn);
+      if (i === 0) btn.click();
+    });
+
+    let liveBtn;
+    send.addEventListener("click", async () => {
+      send.disabled = true; send.textContent = "Sending…";
+      if (!liveBtn) { liveBtn = h("button", {role:"tab", class:"live", "aria-selected":"false"}, "Live"); tabs.append(liveBtn); }
+      const t0 = performance.now();
+      let status, text, ms;
+      try {
+        const r = await fetch(input.value);
+        status = r.status; text = await r.text();
+      } catch (e) { status = 0; text = JSON.stringify({message:"Could not reach the server. Is it running?"}); }
+      ms = Math.round(performance.now() - t0);
+      let body = text; try { body = JSON.stringify(JSON.parse(text), null, 2); } catch {}
+      const label = status ? `${status} ${STATUS[status] || ""}` : "Network error";
+      liveBtn.onclick = () => show(liveBtn, () => {
+        out.append(h("div", {class:"status"}, `<b class="${status ? cls(status) : "s5"}">${label}</b><span class="meta">${ms} ms, live</span>`),
+                   h("pre", {}, hl(body)));
+      });
+      liveBtn.click();
+      send.disabled = false; send.textContent = "Send request";
+    });
+
+    card.append(h("div", {class:"panes"}));
+    card.lastChild.append(reqPane, resPane);
+    docs.append(card);
+  });
+});
+</script>
+</body>
 </html>

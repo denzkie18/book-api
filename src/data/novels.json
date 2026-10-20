@@ -3,6 +3,7 @@
     {
       "id": 1044,
       "title": "A Late-Start Tamer’s Laid-Back Life",
+      "genres": ["Adventure", "Comedy", "Fantasy"],
       "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/0/04/Deo13.jpg/revision/latest?cb=20261005171413",
       "publishers": [
         {
@@ -31,6 +32,7 @@
     {
       "id": 1043,
       "title": "A Late-Start Tamer’s Laid-Back Life",
+      "genres": ["Adventure", "Comedy", "Fantasy"],
       "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/8/86/Deo12.jpg/revision/latest?cb=20261005171400",
       "publishers": [
         {
@@ -59,6 +61,7 @@
     {
       "id": 1042,
       "title": "A Late-Start Tamer’s Laid-Back Life",
+      "genres": ["Adventure", "Comedy", "Fantasy"],
       "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/1/19/Deo11.jpg/revision/latest?cb=20261005171350",
       "publishers": [
         {
@@ -87,6 +90,7 @@
     {
       "id": 1041,
       "title": "A Late-Start Tamer’s Laid-Back Life",
+      "genres": ["Adventure", "Comedy", "Fantasy"],
       "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/d/d9/Deo10.jpg/revision/latest?cb=20260930062229",
       "publishers": [
         {
@@ -115,6 +119,7 @@
     {
       "id": 1040,
       "title": "A Late-Start Tamer’s Laid-Back Life",
+      "genres": ["Adventure", "Comedy", "Fantasy"],
       "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/4/45/Deo9.jpg/revision/latest?cb=20260930062220",
       "publishers": [
         {
@@ -143,6 +148,7 @@
     {
       "id": 1039,
       "title": "A Late-Start Tamer’s Laid-Back Life",
+      "genres": ["Adventure", "Comedy", "Fantasy"],
       "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/f/f2/Deo8.jpg/revision/latest?cb=20260930062211",
       "publishers": [
         {
@@ -171,6 +177,7 @@
     {
       "id": 1038,
       "title": "A Late-Start Tamer’s Laid-Back Life",
+      "genres": ["Adventure", "Comedy", "Fantasy"],
       "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/3/32/Deo7.jpg/revision/latest?cb=20260930062202",
       "publishers": [
         {
@@ -199,6 +206,7 @@
     {
       "id": 1037,
       "title": "A Late-Start Tamer’s Laid-Back Life",
+      "genres": ["Adventure", "Comedy", "Fantasy"],
       "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/7/78/Deo6.PNG/revision/latest?cb=20230301165420",
       "publishers": [
         {
@@ -227,6 +235,7 @@
     {
       "id": 1036,
       "title": "A Late-Start Tamer’s Laid-Back Life",
+      "genres": ["Adventure", "Comedy", "Fantasy"],
       "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/b/bb/Deo5.PNG/revision/latest?cb=20230301165415",
       "publishers": [
         {
@@ -255,6 +264,7 @@
     {
       "id": 1035,
       "title": "A Late-Start Tamer’s Laid-Back Life",
+      "genres": ["Adventure", "Comedy", "Fantasy"],
       "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/4/44/Deo4.PNG/revision/latest?cb=20230301165411",
       "publishers": [
         {
@@ -283,6 +293,7 @@
     {
       "id": 1034,
       "title": "A Late-Start Tamer’s Laid-Back Life",
+      "genres": ["Adventure", "Comedy", "Fantasy"],
       "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/2/25/Deo3.PNG/revision/latest?cb=20230301165406",
       "publishers": [
         {
@@ -311,6 +322,7 @@
     {
       "id": 1033,
       "title": "A Late-Start Tamer’s Laid-Back Life",
+      "genres": ["Adventure", "Comedy", "Fantasy"],
       "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/3/3d/Deo2.PNG/revision/latest?cb=20230301165353",
       "publishers": [
         {
@@ -339,6 +351,8 @@
     {
       "id": 1032,
       "title": "A Late-Start Tamer’s Laid-Back Life",
+      "genres": ["Adventure", "Comedy", "Fantasy"],
+
       "coverUrl": "https://static.wikia.nocookie.net/deokuretamer/images/7/75/Deo1.PNG/revision/latest?cb=20230302031157",
       "publishers": [
         {
@@ -367,6 +381,7 @@
     {
       "id": 1031,
       "title": "86―EIGHTY-SIX Alter: Fight, Magical Girl Reina Lena! Go, Starship San Magnolia!",
+      "genres": ["Action", "Drama", "Mecha", "Romance", "Sci-Fi"],
       "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/a/a5/Alter_2_EN_Cover.jpg/revision/latest?cb=20260312030459",
       "publishers": [
         {
@@ -395,6 +410,7 @@
     {
       "id": 1030,
       "title": "86―EIGHTY-SIX Alter: The Reaper's Occasional Adolescence",
+      "genres": ["Action", "Drama", "Mecha", "Romance", "Sci-Fi"],
       "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/4/42/Alter1_EN_Cover.jpg/revision/latest?cb=20240927035832",
       "publishers": [
         {
@@ -423,6 +439,7 @@
     {
       "id": 1029,
       "title": "86―EIGHTY-SIX: Dear Hunter",
+      "genres": ["Action", "Drama", "Mecha", "Romance", "Sci-Fi"],
       "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/7/75/V13_Cover_EN.jpg/revision/latest?cb=20240927040049",
       "publishers": [
         {
@@ -451,6 +468,7 @@
     {
       "id": 1028,
       "title": "86―EIGHTY-SIX: Holy Blue Bullet",
+      "genres": ["Action", "Drama", "Mecha", "Romance", "Sci-Fi"],
       "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/8/85/V12_Cover_EN.jpg/revision/latest?cb=20230807235247",
       "publishers": [
         {
@@ -479,6 +497,7 @@
     {
       "id": 1027,
       "title": "86―EIGHTY-SIX: Dies Passionis",
+      "genres": ["Action", "Drama", "Mecha", "Romance", "Sci-Fi"],
       "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/8/84/Volume_11_English_Cover.jpg/revision/latest?cb=20220816123728",
       "publishers": [
         {
@@ -507,6 +526,7 @@
     {
       "id": 1026,
       "title": "86―EIGHTY-SIX: Fragmental Neoteny",
+      "genres": ["Action", "Drama", "Mecha", "Romance", "Sci-Fi"],
       "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/3/3a/Volume_10_English_Cover.jpg/revision/latest?cb=20260922031810",
       "publishers": [
         {
@@ -535,6 +555,7 @@
     {
       "id": 1025,
       "title": "86―EIGHTY-SIX: Valkyrie Has Landed",
+      "genres": ["Action", "Drama", "Mecha", "Romance", "Sci-Fi"],
       "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/8/8c/Volume_9_English_Cover.jpg/revision/latest?cb=20211227171727",
       "publishers": [
         {
@@ -563,6 +584,7 @@
     {
       "id": 1024,
       "title": "86―EIGHTY-SIX: Gun Smoke on the Water",
+      "genres": ["Action", "Drama", "Mecha", "Romance", "Sci-Fi"],
       "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/4/40/Volume_8_English.jpg/revision/latest?cb=20210615135512",
       "publishers": [
         {
@@ -591,6 +613,7 @@
     {
       "id": 1023,
       "title": "86―EIGHTY-SIX: Mist",
+      "genres": ["Action", "Drama", "Mecha", "Romance", "Sci-Fi"],
       "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/b/b2/Volume_7_English.jpg/revision/latest?cb=20220206010611",
       "publishers": [
         {
@@ -619,6 +642,7 @@
     {
       "id": 1022,
       "title": "86―EIGHTY-SIX: Darkest Before the Dawn",
+      "genres": ["Action", "Drama", "Mecha", "Romance", "Sci-Fi"],
       "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/4/4f/Volume_6_English.jpg/revision/latest?cb=20220206010600",
       "publishers": [
         {
@@ -647,6 +671,7 @@
     {
       "id": 1021,
       "title": "86--EIGHTY-SIX: Death, Be Not Proud",
+      "genres": ["Action", "Drama", "Mecha", "Romance", "Sci-Fi"],
       "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/3/38/Volume_5_English.jpg/revision/latest?cb=20220206010454",
       "publishers": [
         {
@@ -675,6 +700,7 @@
     {
       "id": 1020,
       "title": "86―EIGHTY-SIX: Under Pressure",
+      "genres": ["Action", "Drama", "Mecha", "Romance", "Sci-Fi"],
       "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/5/55/86_Volume_4_English.jpg/revision/latest?cb=20220206010339",
       "publishers": [
         {
@@ -703,6 +729,7 @@
     {
       "id": 1019,
       "title": "86―EIGHTY-SIX: Run Through the Battlefront (End)",
+      "genres": ["Action", "Drama", "Mecha", "Romance", "Sci-Fi"],
       "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/6/6a/English_cover_volume_3.png/revision/latest?cb=20191127135036",
       "publishers": [
         {
@@ -731,6 +758,7 @@
     {
       "id": 1018,
       "title": "86―EIGHTY-SIX: Run Through the Battlefront (Start)",
+      "genres": ["Action", "Drama", "Mecha", "Romance", "Sci-Fi"],
       "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/9/92/English_cover_volume_2.png/revision/latest?cb=20191127134535",
       "publishers": [
         {
@@ -759,6 +787,7 @@
     {
       "id": 1017,
       "title": "86―EIGHTY-SIX",
+      "genres": ["Action", "Drama", "Mecha", "Romance", "Sci-Fi"],
       "coverUrl": "https://static.wikia.nocookie.net/86-eighty-six/images/1/1d/Light_Novel_Volume_1_Cover_English.jpg/revision/latest?cb=20220206010804",
       "publishers": [
         {
@@ -787,6 +816,7 @@
     {
       "id": 1016,
       "title": "7th Time Loop: The Villainess Enjoys a Carefree Life Married to Her Worst Enemy! Short Story Collection",
+      "genres": ["Fantasy", "Romance"],
       "coverUrl": "https://static.wikia.nocookie.net/7th-time-loop/images/1/18/7TL_Short_Story_Collection_Japanese_Cover.jpg/revision/latest?cb=20260121054758",
       "publishers": [
         {
@@ -815,6 +845,7 @@
     {
       "id": 1015,
       "title": "7th Time Loop: The Villainess Enjoys a Carefree Life Married to Her Worst Enemy!",
+      "genres": ["Fantasy", "Romance"],
       "coverUrl": "https://static.wikia.nocookie.net/7th-time-loop/images/d/db/7th_Time_Loop_Light_Novel_Volume_6_Cover_Japanese.jpg/revision/latest?cb=20240216133501",
       "publishers": [
         {
@@ -843,6 +874,7 @@
     {
       "id": 1014,
       "title": "7th Time Loop: The Villainess Enjoys a Carefree Life Married to Her Worst Enemy!",
+      "genres": ["Fantasy", "Romance"],
       "coverUrl": "https://static.wikia.nocookie.net/7th-time-loop/images/8/8a/7th_Time_Loop_Light_Novel_Volume_5_Cover_Japanese.jpg/revision/latest?cb=20240216133259",
       "publishers": [
         {
@@ -871,6 +903,7 @@
     {
       "id": 1013,
       "title": "7th Time Loop: The Villainess Enjoys a Carefree Life Married to Her Worst Enemy!",
+      "genres": ["Fantasy", "Romance"],
       "coverUrl": "https://static.wikia.nocookie.net/7th-time-loop/images/f/fa/7th_Time_Loop_Light_Novel_Volume_4_Cover_Japanese.jpg/revision/latest?cb=20240216132848",
       "publishers": [
         {
@@ -899,6 +932,7 @@
     {
       "id": 1012,
       "title": "7th Time Loop: The Villainess Enjoys a Carefree Life Married to Her Worst Enemy!",
+      "genres": ["Fantasy", "Romance"],
       "coverUrl": "https://static.wikia.nocookie.net/7th-time-loop/images/d/d2/7th_Time_Loop_Light_Novel_Volume_3_Cover_Japanese.jpg/revision/latest?cb=20240216131931",
       "publishers": [
         {
@@ -927,6 +961,7 @@
     {
       "id": 1011,
       "title": "7th Time Loop: The Villainess Enjoys a Carefree Life Married to Her Worst Enemy!",
+      "genres": ["Fantasy", "Romance"],
       "coverUrl": "https://static.wikia.nocookie.net/7th-time-loop/images/d/df/7th_Time_Loop_Light_Novel_Volume_2_Cover_Japanese.jpg/revision/latest?cb=20240216131319",
       "publishers": [
         {
@@ -955,6 +990,7 @@
     {
       "id": 1010,
       "title": "7th Time Loop: The Villainess Enjoys a Carefree Life Married to Her Worst Enemy!",
+      "genres": ["Fantasy", "Romance"],
       "coverUrl": "https://static.wikia.nocookie.net/7th-time-loop/images/b/b5/7th_Time_Loop_Light_Novel_Volume_1_Cover_Japanese.jpg/revision/latest?cb=20240216130522",
       "publishers": [
         {
@@ -983,6 +1019,7 @@
     {
       "id": 1009,
       "title": "A Wild Last Boss Appeared",
+      "genres": ["Action", "Adventure", "Fantasy"],
       "coverUrl": "https://static.wikia.nocookie.net/yasei-no-last-boss-arawareta/images/2/25/V9_Cover_English.png/revision/latest?cb=20230225065547",
       "publishers": [
         {
@@ -1011,6 +1048,7 @@
     {
       "id": 1008,
       "title": "A Wild Last Boss Appeared",
+      "genres": ["Action", "Adventure", "Fantasy"],
       "coverUrl": "https://static.wikia.nocookie.net/yasei-no-last-boss-arawareta/images/5/5e/V8_Cover_English.png/revision/latest?cb=20230225065541",
       "publishers": [
         {
@@ -1039,6 +1077,7 @@
     {
       "id": 1007,
       "title": "A Wild Last Boss Appeared",
+      "genres": ["Action", "Adventure", "Fantasy"],
       "coverUrl": "https://static.wikia.nocookie.net/yasei-no-last-boss-arawareta/images/d/d5/V7_Cover_English.png/revision/latest?cb=20230225065540",
       "publishers": [
         {
@@ -1067,6 +1106,7 @@
     {
       "id": 1006,
       "title": "A Wild Last Boss Appeared",
+      "genres": ["Action", "Adventure", "Fantasy"],
       "coverUrl": "https://static.wikia.nocookie.net/yasei-no-last-boss-arawareta/images/0/0a/V6_Cover_English.png/revision/latest?cb=20230225065542",
       "publishers": [
         {
@@ -1095,6 +1135,7 @@
     {
       "id": 1005,
       "title": "A Wild Last Boss Appeared",
+      "genres": ["Action", "Adventure", "Fantasy"],
       "coverUrl": "https://static.wikia.nocookie.net/yasei-no-last-boss-arawareta/images/6/65/V5_Cover_English.png/revision/latest?cb=20230225065540",
       "publishers": [
         {
@@ -1123,6 +1164,7 @@
     {
       "id": 1004,
       "title": "A Wild Last Boss Appeared",
+      "genres": ["Action", "Adventure", "Fantasy"],
       "coverUrl": "https://static.wikia.nocookie.net/yasei-no-last-boss-arawareta/images/5/52/V4_Cover_English.png/revision/latest?cb=20230225065457",
       "publishers": [
         {
@@ -1151,6 +1193,7 @@
     {
       "id": 1003,
       "title": "A Wild Last Boss Appeared",
+      "genres": ["Action", "Adventure", "Fantasy"],
       "coverUrl": "https://static.wikia.nocookie.net/yasei-no-last-boss-arawareta/images/3/3a/V3_Cover_English.png/revision/latest?cb=20230225065542",
       "publishers": [
         {
@@ -1179,6 +1222,7 @@
     {
       "id": 1002,
       "title": "A Wild Last Boss Appeared",
+      "genres": ["Action", "Adventure", "Fantasy"],
       "coverUrl": "https://static.wikia.nocookie.net/yasei-no-last-boss-arawareta/images/3/32/V2_Cover_English.png/revision/latest?cb=20230225065542",
       "publishers": [
         {
@@ -1207,6 +1251,7 @@
     {
       "id": 1001,
       "title": "A Wild Last Boss Appeared",
+      "genres": ["Action", "Adventure", "Fantasy"],
       "coverUrl": "https://static.wikia.nocookie.net/yasei-no-last-boss-arawareta/images/6/6f/V1_Cover_English.png/revision/latest?cb=20230225051136",
       "publishers": [
         {

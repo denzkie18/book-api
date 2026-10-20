@@ -2,11 +2,13 @@ const express = require("express");
 const AnilistProvider = require("../providers/AnilistProvider");
 const RanobeDBProvider = require("../providers/RanobeDBProvider");
 const loadBook = require("../middleware/loadBook");
-const { books } = require("../data/novels.json");
+const {
+  findProvider,
+  pickBookFields,
+  booksInSeries,
+} = require("../utils/seriesBooks");
 
 const router = express.Router();
-
-const BOOK_FIELDS = ["id", "title", "volume", "coverUrl"];
 
 router.param("id", loadBook);
 
@@ -24,30 +26,6 @@ function handleError(res, error) {
   });
 }
 
-function findProvider(book, name) {
-  return book.providers?.find((item) => item.name?.toLowerCase() === name);
-}
-
-// Local books that belong to the same series as `book`.
-// Matches on the RanobeDB series ID, or the AniList ID if there is no RanobeDB one.
-
-function pickBookFields(book) {
-  return Object.fromEntries(BOOK_FIELDS.map((key) => [key, book[key] ?? null]));
-}
-
-function booksInSeries(book) {
-  const provider =
-    findProvider(book, "ranobedb") ?? findProvider(book, "anilist");
-
-  if (!provider) return [book];
-
-  const name = provider.name.toLowerCase();
-
-  return books
-    .filter((item) => findProvider(item, name)?.id === provider.id)
-    .sort((x, y) => x.id - y.id);
-}
-
 // The only RanobeDB fields merged into the AniList data.
 function ranobedbFields(s) {
   return {
@@ -59,45 +37,9 @@ function ranobedbFields(s) {
   };
 }
 
-// GET /api/v0/novel/series/:id/anilist  (original AniList data)
-router.get("/:id/anilist", async (req, res) => {
-  const provider = findProvider(req.book, "anilist");
-
-  if (!provider) {
-    return res.status(404).json({
-      message: "This book does not have an AniList provider.",
-    });
-  }
-
-  try {
-    const series = await AnilistProvider.getNovelById(provider.id);
-    return res.json({ bookId: req.book.id, provider: provider.name, series });
-  } catch (error) {
-    return handleError(res, error);
-  }
-});
-
-// GET /api/v0/novel/series/:id/ranobedb  (original RanobeDB data)
-router.get("/:id/ranobedb", async (req, res) => {
-  const provider = findProvider(req.book, "ranobedb");
-
-  if (!provider) {
-    return res.status(404).json({
-      message: "This book does not have a RanobeDB provider.",
-    });
-  }
-
-  try {
-    const series = await RanobeDBProvider.getBookById(provider.id, "series");
-    return res.json({ bookId: req.book.id, provider: provider.name, series });
-  } catch (error) {
-    return handleError(res, error);
-  }
-});
-
 // GET /api/v0/novel/series/:id
 // AniList data as-is, with status, volumes, publishers, website and
-// webNovel taken from RanobeDB.
+// webNovel taken from RanobeDB, plus the local books in the series.
 router.get("/:id", async (req, res) => {
   const anilist = findProvider(req.book, "anilist");
   const ranobedb = findProvider(req.book, "ranobedb");
