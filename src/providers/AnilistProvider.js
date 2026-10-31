@@ -1,4 +1,5 @@
-const ANILIST_API_URL = "https://graphql.anilist.co";
+const { createClient, ProviderError } = require("../utils/providerClient");
+const client = createClient({ name: "AniList", url: "https://graphql.anilist.co", interval: 2200 });
 
 const NOVEL_QUERY = `
   query GetNovel($id: Int!) {
@@ -220,100 +221,49 @@ const NOVEL_QUERY = `
           score
           amount
         }
-        scoreDistribution {
-          score
-          amount
-        }
       }
       siteUrl
     }
   }
 `;
 
-class AnilistProviderError extends Error {
-  constructor(message, statusCode = 502, retryAfter = null) {
-    super(message);
-    this.name = "AnilistProviderError";
-    this.statusCode = statusCode;
-    this.retryAfter = retryAfter;
-  }
+const batchFlights = new Map();
+const SUMMARY_FIELDS = `id genres tags { name } popularity averageScore coverImage { color }`;
+function validId(id) {
+  if (!Number.isInteger(id) || id <= 0 || id > 2147483647) throw new ProviderError("Invalid AniList ID.", 400);
 }
-
 async function getNovelById(id) {
-  if (!Number.isInteger(id) || id <= 0 || id > 2147483647) {
-    throw new AnilistProviderError("Invalid AniList ID.", 400);
-  }
-
-  let response;
-
-  try {
-    response = await fetch(ANILIST_API_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        query: NOVEL_QUERY,
-        variables: { id },
-      }),
-      signal: AbortSignal.timeout(10000),
-    });
-  } catch (error) {
-    const timedOut =
-      error.name === "TimeoutError" || error.name === "AbortError";
-
-    throw new AnilistProviderError(
-      timedOut ? "AniList request timed out." : "Unable to connect to AniList.",
-      timedOut ? 504 : 502,
-    );
-  }
-
-  if (response.status === 429) {
-    throw new AnilistProviderError(
-      "AniList rate limit reached. Try again later.",
-      429,
-      response.headers.get("retry-after"),
-    );
-  }
-
-  if (response.status === 404) {
-    throw new AnilistProviderError("Novel not found on AniList.", 404);
-  }
-
-  if (!response.ok) {
-    throw new AnilistProviderError(`AniList returned HTTP ${response.status}.`);
-  }
-
-  let payload;
-
-  try {
-    payload = await response.json();
-  } catch {
-    throw new AnilistProviderError("AniList returned invalid JSON.");
-  }
-
-  // GraphQL can return errors even with HTTP 200.
-  if (payload.errors?.length) {
-    const notFound = payload.errors.some(
-      (error) => Number(error.status) === 404,
-    );
-
-    throw new AnilistProviderError(
-      notFound
-        ? "Novel not found on AniList."
-        : "AniList could not complete the query.",
-      notFound ? 404 : 502,
-    );
-  }
-
-  if (!payload.data?.Media) {
-    throw new AnilistProviderError("Novel not found on AniList.", 404);
-  }
-
-  return payload.data.Media;
+  validId(id);
+  return client.cached(`detail:${id}`, async () => {
+    const payload = await client.request('', { query: NOVEL_QUERY, variables: { id } });
+    if (!payload.data?.Media) throw new ProviderError("Novel not found on AniList.", 404);
+    client.put(`summary:${id}`, payload.data.Media);
+    return payload.data.Media;
+  });
 }
-
-module.exports = {
-  getNovelById,
-};
+// Sorted ID-set caching collapses concurrent catalog/filter requests. A Page
+// returns up to 50 NOVEL records per POST, not one request per local volume.
+async function getNovelSummaries(ids) {
+  const unique = [...new Set(ids)].sort((a, b) => a - b);
+  unique.forEach(validId);
+  if (!unique.length) return new Map();
+  const missing = unique.filter(id => client.peek(`summary:${id}`) === undefined);
+  if (missing.length) {
+    const key = missing.join(',');
+    if (!batchFlights.has(key)) batchFlights.set(key, (async () => {
+    for (let offset = 0; offset < missing.length; offset += 50) {
+      const chunk = missing.slice(offset, offset + 50);
+      const payload = await client.request('', {
+        query: `query CatalogNovels($ids:[Int]) { Page(page:1, perPage:50) { media(id_in:$ids,type:MANGA,format:NOVEL) { ${SUMMARY_FIELDS} } } }`,
+        variables: { ids: chunk },
+      });
+      if (!Array.isArray(payload.data?.Page?.media)) throw new ProviderError("AniList returned an unexpected catalog response.");
+      const found = new Map(payload.data.Page.media.map(item => [item.id, item]));
+      for (const id of chunk) client.put(`summary:${id}`, found.get(id) ?? null);
+    }
+    })().finally(() => batchFlights.delete(key)));
+    await batchFlights.get(key);
+  }
+  return new Map(unique.map(id => [id, client.peek(`summary:${id}`) ?? null]));
+}
+module.exports = { getNovelById, getNovelSummaries };

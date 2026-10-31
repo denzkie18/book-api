@@ -4,12 +4,15 @@
     "path": "^0.12.7"
   },
   "name": "quill-api",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "private": true,
+  "description": "Local novel catalog enriched by AniList and RanobeDB",
   "main": "index.js",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "node --watch src/server.js"
+    "dev": "node --watch src/server.js",
+    "test":"node --test test/*.test.js",
+    "test:live":"node scripts/live-smoke.js"
   },
   "keywords": [],
   "type": "commonjs",

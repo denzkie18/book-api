@@ -30,7 +30,7 @@ function handleError(res, error) {
 function ranobedbFields(s) {
   return {
     status: s.publication_status ?? null,
-    volumes: (s.books ?? []).filter((b) => b.book_type === "main").length,
+    volumes: new Set((s.books ?? []).filter((b) => b.book_type === "main").map(b => b.id)).size,
     publishers: s.publishers ?? [],
     website: s.website ?? null,
     webNovel: s.web_novel ?? null,

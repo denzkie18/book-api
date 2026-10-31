@@ -1,0 +1,64 @@
+const { test, before, after } = require('node:test');
+const assert = require('node:assert/strict');
+const nativeFetch = global.fetch;
+const { books } = require('../src/utils/catalog');
+let upstreamCalls = 0;
+global.fetch = async (url, options = {}) => {
+  if (!String(url).startsWith('https://')) return nativeFetch(url, options);
+  upstreamCalls++;
+  if (String(url).includes('anilist')) {
+    const { variables, query } = JSON.parse(options.body);
+    const media = id => ({ id, title: { english: `Novel ${id}` }, genres: ['Fantasy', 'Romance', 'Drama'], tags: [{ name: 'Female Protagonist' }, { name: 'Magic' }], popularity: 123, averageScore: 78, coverImage: { color: '#123456' } });
+    return Response.json({ data: query.includes('CatalogNovels') ? { Page: { media: variables.ids.map(media) } } : { Media: media(variables.id) } });
+  }
+  const [, kind, id] = String(url).match(/\/(book|series)\/(\d+)$/);
+  return Response.json({ [kind]: { id: Number(id), description: 'RanobeDB book description', c_release_dates: { en: 20260908 }, c_release_date: 20250801, books: [{ id: 1, book_type: 'main' }, { id: 1, book_type: 'main' }] } });
+};
+const app = require('../src/server'); let server, base;
+before(async () => { await new Promise(resolve => { server = app.listen(0, '127.0.0.1', resolve); }); base = `http://127.0.0.1:${server.address().port}`; });
+after(() => { server.closeAllConnections(); server.close(); global.fetch = nativeFetch; });
+async function get(path) { const response = await nativeFetch(base + '/api/v0/novel' + path); return { response, data: await response.json() }; }
+const expected = ['id','title','cover_url','publisher_name','volume','anilist_id','ranobidb_id','book_provider_id','description','genres','popularity','weighted_score','published_date','color'];
+test('latest has exact allowlist, provider values and stable descending IDs', async () => {
+  const { response, data } = await get('/latest?perPage=3'); assert.equal(response.status, 200); assert.equal(data.total, 62);
+  assert.deepEqual(Object.keys(data.books[0]), expected); assert.equal(data.books[0].description, 'RanobeDB book description'); assert.equal(data.books[0].weighted_score, 78); assert.equal(data.books[0].published_date, '2026-09-08'); assert.equal(data.books[0].color, '#123456');
+  assert.deepEqual(data.books.map(b => b.id), [...data.books.map(b => b.id)].sort((a,b) => b-a));
+});
+test('repeated latest calls reuse cache', async () => { const n = upstreamCalls; await get('/latest?perPage=3'); assert.equal(upstreamCalls, n); });
+test('bracket/comma filters are sourced from AniList, not local genres', async () => {
+  const { response, data } = await get('?genres=%5Bromance,%20drama%5D&tags=female%20protagonist,magic&perPage=1');
+  assert.equal(response.status, 200); assert.ok(data.total > 0); assert.equal(data.books.length, 1); assert.ok(data.books[0].genres.includes('Drama'));
+});
+test('all vs any filters and repeated/JSON-style names', async () => {
+  assert.equal((await get('?genres=Romance,Nonexistent')).data.total, 0);
+  assert.ok((await get('?genres=Romance,Nonexistent&match=any&perPage=1')).data.total > 0);
+  assert.ok((await get('?genres=%5B%22Romance%22,%22Drama%22%5D&tags=Magic&tags=Female%20Protagonist&perPage=1')).data.total > 0);
+  assert.equal((await get('?genres=Fantasy&tags=Missing&match=any')).data.total, 0); // AND between groups
+});
+test('single series deduplicates volumes without dropping distinct books', async () => {
+  const { response, data } = await get('/series/1059'); assert.equal(response.status, 200); assert.equal(data.totalBooks, 11);
+  assert.equal(new Set(data.books.map(b => b.book_provider_id)).size, data.totalBooks);
+  assert.deepEqual(data.books.map(b => b.volume), Array.from({length:11},(_,i)=>i+1)); assert.equal(data.series.volumes, 1);
+  const second = await get('/series/1010'); assert.equal(new Set(second.data.books.map(b => b.book_provider_id)).size, second.data.totalBooks);
+});
+test('detail routes keep rich payload and single-ID route is enriched', async () => {
+  const { data } = await get('/book/1059'); assert.equal(data.book.description, 'RanobeDB book description'); assert.equal(data.totalBooks, 11);
+  assert.deepEqual(Object.keys((await get('/1059')).data.book), expected);
+});
+test('input validation and out-of-range pages', async () => {
+  for (const path of ['/latest?page=0','/latest?perPage=101','?match=none','?page=2.5','?genres=[fantasy','/abc','/0']) assert.equal((await get(path)).response.status, 400, path);
+  assert.deepEqual((await get('/latest?page=99999')).data.books, []); assert.equal((await get('/9999999')).response.status, 404);
+});
+test('filter failure is not silently reported as zero matches', async () => {
+  const provider = require('../src/providers/AnilistProvider'); const original = provider.getNovelSummaries;
+  provider.getNovelSummaries = async () => { const e = new Error('AniList rate limit reached.'); e.statusCode = 429; e.retryAfter = '60'; throw e; };
+  try { const { response } = await get('?genres=Fantasy'); assert.equal(response.status, 429); assert.equal(response.headers.get('retry-after'), '60'); }
+  finally { provider.getNovelSummaries = original; }
+});
+test('list provider failure keeps exact fields and reports warnings', async () => {
+  const provider = require('../src/providers/RanobeDBProvider'); const original = provider.getBookById;
+  provider.getBookById = async () => { throw new Error('Upstream unavailable'); };
+  try { const { response, data } = await get('/latest?perPage=1'); assert.equal(response.status, 200); assert.equal(data.books[0].description, null); assert.deepEqual(Object.keys(data.books[0]), expected); assert.equal(data.warnings[0].provider, 'ranobedb'); }
+  finally { provider.getBookById = original; }
+});
+test('catalog IDs unique and both formerly conflicting volumes preserved', () => { assert.equal(new Set(books.map(b => b.id)).size, books.length); assert.equal(books.find(b => b.id === 1059).volume, 1); assert.equal(books.find(b => b.id === 1069).volume, 11); });

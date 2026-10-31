@@ -1,52 +1,30 @@
-const { books } = require("../data/novels.json");
-
-const BOOK_FIELDS = ["id", "title", "volume", "coverUrl"];
-
+const { books } = require('./catalog');
 function findProvider(book, name) {
-  return book.providers?.find((item) => item.name?.toLowerCase() === name);
+  return book.providers?.find(p => p.name?.toLowerCase() === name.toLowerCase());
 }
-
+function seriesKey(book) {
+  const p = findProvider(book, 'ranobedb') ?? findProvider(book, 'anilist');
+  return p ? `${p.name.toLowerCase()}:${p.id}` : `book:${book.id}`;
+}
+function identity(book) {
+  return book.bookProvider?.id ? `${book.bookProvider.name.toLowerCase()}:${book.bookProvider.id}` : `local:${book.id}`;
+}
+function uniqueBooks(list) {
+  return [...new Map(list.map(b => [identity(b), b])).values()];
+}
 function pickBookFields(book) {
-  return Object.fromEntries(BOOK_FIELDS.map((key) => [key, book[key] ?? null]));
+  return { id: book.id, title: book.title, volume: book.volume ?? null, cover_url: book.coverUrl ?? null, book_provider_id: book.bookProvider?.id ?? null };
 }
-
-// Local books that share the same RanobeDB series ID (AniList ID as fallback).
 function booksInSeries(book) {
-  const provider =
-    findProvider(book, "ranobedb") ?? findProvider(book, "anilist");
-
-  if (!provider) return [book];
-
-  const name = provider.name.toLowerCase();
-
-  return books
-    .filter((item) => findProvider(item, name)?.id === provider.id)
-    .sort((x, y) => x.id - y.id);
+  const key = seriesKey(book);
+  return uniqueBooks(books.filter(b => seriesKey(b) === key)).sort((a, b) => (a.volume ?? Infinity) - (b.volume ?? Infinity) || a.id - b.id);
 }
-
-// One book per series: lowest volume wins, then lowest local id.
-// Series are keyed by RanobeDB series ID, or AniList ID if there is none.
 function onePerSeries(list) {
   const best = new Map();
-
-  for (const book of list) {
-    const provider =
-      findProvider(book, "ranobedb") ?? findProvider(book, "anilist");
-    const key = provider
-      ? `${provider.name.toLowerCase()}:${provider.id}`
-      : `book:${book.id}`;
-
-    const current = best.get(key);
-    const rank = (b) => [b.volume ?? Infinity, b.id];
-    const [v1, i1] = rank(book);
-    const [v2, i2] = current ? rank(current) : [Infinity, Infinity];
-
-    if (!current || v1 < v2 || (v1 === v2 && i1 < i2)) {
-      best.set(key, book);
-    }
+  for (const b of uniqueBooks(list)) {
+    const key = seriesKey(b), prev = best.get(key);
+    if (!prev || (b.volume ?? Infinity) < (prev.volume ?? Infinity) || (b.volume === prev.volume && b.id < prev.id)) best.set(key, b);
   }
-
   return [...best.values()];
 }
-
-module.exports = { findProvider, pickBookFields, booksInSeries, onePerSeries };
+module.exports = { findProvider, pickBookFields, booksInSeries, onePerSeries, uniqueBooks, seriesKey };
