@@ -1,6 +1,510 @@
 {
   "books": [
     {
+      "id": 1087,
+      "title": "Banished from the Hero's Party, I Decided to Live a Quiet Life in the Countryside",
+      "coverUrl": "https://static.wikia.nocookie.net/banished-from-the-heros-party/images/3/3a/Novel_Volume_15.jpg/revision/latest?cb=20250725034117",
+      "publishers": [
+        {
+          "name": "Yen Press",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975312459-banished-from-the-hero-s-party-i-decided-to-live-a-quiet-life-in-the-countryside-vol-1-light-novel"
+        }
+      ],
+      "volume": 15,
+      "bookCloudId": "1ZWeU_oQ9DIBhTQt0CmoiOhcYkUCWeTHf",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 104475
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8215
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 47033
+      }
+    },
+    {
+      "id": 1086,
+      "title": "Banished from the Hero's Party, I Decided to Live a Quiet Life in the Countryside",
+      "coverUrl": "https://static.wikia.nocookie.net/banished-from-the-heros-party/images/c/c8/Novel_Volume_14.jpg/revision/latest?cb=20250725034058",
+      "publishers": [
+        {
+          "name": "Yen Press",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975312459-banished-from-the-hero-s-party-i-decided-to-live-a-quiet-life-in-the-countryside-vol-1-light-novel"
+        }
+      ],
+      "volume": 14,
+      "bookCloudId": "1jKE5BRCdH0wMbFyMUWeK20hq7St5KSBF",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 104475
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8215
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 41946
+      }
+    },
+    {
+      "id": 1085,
+      "title": "Banished from the Hero's Party, I Decided to Live a Quiet Life in the Countryside",
+      "coverUrl": "https://static.wikia.nocookie.net/banished-from-the-heros-party/images/7/7a/Novel_Volume_13.jpg/revision/latest?cb=20250725034037",
+      "publishers": [
+        {
+          "name": "Yen Press",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975312459-banished-from-the-hero-s-party-i-decided-to-live-a-quiet-life-in-the-countryside-vol-1-light-novel"
+        }
+      ],
+      "volume": 13,
+      "bookCloudId": "1n81AajHCd6KRBfQYjGYecBH_EEQEcoqe",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 104475
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8215
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 42550
+      }
+    },
+    {
+      "id": 1084,
+      "title": "Banished from the Hero's Party, I Decided to Live a Quiet Life in the Countryside",
+      "coverUrl": "https://static.wikia.nocookie.net/banished-from-the-heros-party/images/c/cd/Novel_Volume_12.jpg/revision/latest?cb=20250725034147",
+      "publishers": [
+        {
+          "name": "Yen Press",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975312459-banished-from-the-hero-s-party-i-decided-to-live-a-quiet-life-in-the-countryside-vol-1-light-novel"
+        }
+      ],
+      "volume": 12,
+      "bookCloudId": "1A5mu_ByjKR2KPDTIT7L3epGGmz5gPF2T",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 104475
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8215
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 38455
+      }
+    },
+    {
+      "id": 1083,
+      "title": "Banished from the Hero's Party, I Decided to Live a Quiet Life in the Countryside",
+      "coverUrl": "https://static.wikia.nocookie.net/banished-from-the-heros-party/images/7/7e/Novel_Volume_11.jpg/revision/latest?cb=20250725034012",
+      "publishers": [
+        {
+          "name": "Yen Press",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975312459-banished-from-the-hero-s-party-i-decided-to-live-a-quiet-life-in-the-countryside-vol-1-light-novel"
+        }
+      ],
+      "volume": 11,
+      "bookCloudId": "1-0bT4Wu8cYHQhvA_QTYX8BDAfRp96inu",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 104475
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8215
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 37027
+      }
+    },
+    {
+      "id": 1082,
+      "title": "Banished from the Hero's Party, I Decided to Live a Quiet Life in the Countryside",
+      "coverUrl": "https://static.wikia.nocookie.net/banished-from-the-heros-party/images/c/cb/Novel_Volume_10.jpg/revision/latest?cb=20250725033950",
+      "publishers": [
+        {
+          "name": "Yen Press",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975312459-banished-from-the-hero-s-party-i-decided-to-live-a-quiet-life-in-the-countryside-vol-1-light-novel"
+        }
+      ],
+      "volume": 10,
+      "bookCloudId": "1aw34-DzSKo7F6H-KMI06w4Bpl6JKfefe",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 104475
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8215
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 35194
+      }
+    },
+    {
+      "id": 1081,
+      "title": "Banished from the Hero's Party, I Decided to Live a Quiet Life in the Countryside",
+      "coverUrl": "https://static.wikia.nocookie.net/banished-from-the-heros-party/images/0/0d/Novel_Volume_09.jpg/revision/latest?cb=20250725033924",
+      "publishers": [
+        {
+          "name": "Yen Press",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975312459-banished-from-the-hero-s-party-i-decided-to-live-a-quiet-life-in-the-countryside-vol-1-light-novel"
+        }
+      ],
+      "volume": 9,
+      "bookCloudId": "1Gy5XddGvvTZZUeSkMUWDOp0Z2_HYbUIw",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 104475
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8215
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 33608
+      }
+    },
+    {
+      "id": 1080,
+      "title": "Banished from the Hero's Party, I Decided to Live a Quiet Life in the Countryside",
+      "coverUrl": "https://static.wikia.nocookie.net/banished-from-the-heros-party/images/e/ea/Unnamed.jpg/revision/latest?cb=20210708032217",
+      "publishers": [
+        {
+          "name": "Yen Press",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975312459-banished-from-the-hero-s-party-i-decided-to-live-a-quiet-life-in-the-countryside-vol-1-light-novel"
+        }
+      ],
+      "volume": 8,
+      "bookCloudId": "1HX5K1lPDqSel-jZ7IFcjTgS0fZcSb4_b",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 104475
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8215
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 32099
+      }
+    },
+    {
+      "id": 1079,
+      "title": "Banished from the Hero's Party, I Decided to Live a Quiet Life in the Countryside",
+      "coverUrl": "https://static.wikia.nocookie.net/banished-from-the-heros-party/images/5/55/Novel_Volume_07.png/revision/latest?cb=20201123111000",
+      "publishers": [
+        {
+          "name": "Yen Press",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975312459-banished-from-the-hero-s-party-i-decided-to-live-a-quiet-life-in-the-countryside-vol-1-light-novel"
+        }
+      ],
+      "volume": 7,
+      "bookCloudId": "13lDJagSt2kf4g6f4zjeZLq0W89T1LZX6",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 104475
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8215
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 29852
+      }
+    },
+    {
+      "id": 1078,
+      "title": "Banished from the Hero's Party, I Decided to Live a Quiet Life in the Countryside",
+      "coverUrl": "https://static.wikia.nocookie.net/banished-from-the-heros-party/images/6/6a/Novel_Volume_06.png/revision/latest?cb=20201123110943",
+      "publishers": [
+        {
+          "name": "Yen Press",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975312459-banished-from-the-hero-s-party-i-decided-to-live-a-quiet-life-in-the-countryside-vol-1-light-novel"
+        }
+      ],
+      "volume": 6,
+      "bookCloudId": "1rVc1qyXOCce7J-Zk-vcMWrZbSsq3UsRu",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 104475
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8215
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 28615
+      }
+    },
+    {
+      "id": 1077,
+      "title": "Banished from the Hero's Party, I Decided to Live a Quiet Life in the Countryside",
+      "coverUrl": "https://static.wikia.nocookie.net/banished-from-the-heros-party/images/1/17/Novel_Volume_05.png/revision/latest?cb=20201123110930",
+      "publishers": [
+        {
+          "name": "Yen Press",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975312459-banished-from-the-hero-s-party-i-decided-to-live-a-quiet-life-in-the-countryside-vol-1-light-novel"
+        }
+      ],
+      "volume": 5,
+      "bookCloudId": "1XtiLGBptFvANtkO3Hidxpap9y6oF7jQ4",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 104475
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8215
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 27384
+      }
+    },
+    {
+      "id": 1076,
+      "title": "Banished from the Hero's Party, I Decided to Live a Quiet Life in the Countryside",
+      "coverUrl": "https://static.wikia.nocookie.net/banished-from-the-heros-party/images/7/7a/Novel_Volume_04.png/revision/latest?cb=20201123110922",
+      "publishers": [
+        {
+          "name": "Yen Press",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975312459-banished-from-the-hero-s-party-i-decided-to-live-a-quiet-life-in-the-countryside-vol-1-light-novel"
+        }
+      ],
+      "volume": 4,
+      "bookCloudId": "1nNYwha2uioR4i1BWHgdHTzfsXXdsOKLx",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 104475
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8215
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 26348
+      }
+    },
+    {
+      "id": 1075,
+      "title": "Banished from the Hero's Party, I Decided to Live a Quiet Life in the Countryside",
+      "coverUrl": "https://static.wikia.nocookie.net/banished-from-the-heros-party/images/3/3f/Novel_Volume_03.png/revision/latest?cb=20201123110914",
+      "publishers": [
+        {
+          "name": "Yen Press",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975312459-banished-from-the-hero-s-party-i-decided-to-live-a-quiet-life-in-the-countryside-vol-1-light-novel"
+        }
+      ],
+      "volume": 3,
+      "bookCloudId": "1OTSoo6EhcVSpEAad7iGo3hb_tf0LL06x",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 104475
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8215
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 25234
+      }
+    },
+    {
+      "id": 1074,
+      "title": "Banished from the Hero's Party, I Decided to Live a Quiet Life in the Countryside",
+      "coverUrl": "https://static.wikia.nocookie.net/banished-from-the-heros-party/images/f/f9/Novel_Volume_02.png/revision/latest?cb=20201123110904",
+      "publishers": [
+        {
+          "name": "Yen Press",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975312459-banished-from-the-hero-s-party-i-decided-to-live-a-quiet-life-in-the-countryside-vol-1-light-novel"
+        }
+      ],
+      "volume": 2,
+      "bookCloudId": "1RBOM5-GhImuY18P85GngbQnakrPWau-P",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 104475
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8215
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 24237
+      }
+    },
+    {
+      "id": 1073,
+      "title": "Banished from the Hero's Party, I Decided to Live a Quiet Life in the Countryside",
+      "coverUrl": "https://static.wikia.nocookie.net/banished-from-the-heros-party/images/2/2c/Novel_Volume_01.png/revision/latest?cb=20201123110857",
+      "publishers": [
+        {
+          "name": "Yen Press",
+          "site": "https://yenpress.com/",
+          "siteLink": "https://yenpress.com/titles/9781975312459-banished-from-the-hero-s-party-i-decided-to-live-a-quiet-life-in-the-countryside-vol-1-light-novel"
+        }
+      ],
+      "volume": 1,
+      "bookCloudId": "1_BUmj-BQERkJCa4zlAJsm4VPXkyQE7AP",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 104475
+        },
+        {
+          "name": "RanobeDB",
+          "id": 8215
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 23376
+      }
+    },
+    {
+      "id": 1072,
+      "title": "An Observation Log of My Wife Who Calls Herself a Villainess",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai/images/b/ba/Jishou_Akuyaku_Reijou_na_Tsuma_no_Kansatsu_Kiroku_LN3.jpg/revision/latest?cb=20250410060404",
+      "publishers": [
+        {
+          "name": "Hanashi Media",
+          "site": "https://hanashi.media/",
+          "siteLink": "https://hanashi.media/series/an-observation-log-of-my-fiancee"
+        }
+      ],
+      "volume": 3,
+      "bookCloudId": "1SGqwL0HGm0l6m0PDzLhhb6JAZ86u4eha",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 189560
+        },
+        {
+          "name": "RanobeDB",
+          "id": 13457
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 38369
+      }
+    },
+    {
+      "id": 1071,
+      "title": "An Observation Log of My Wife Who Calls Herself a Villainess",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai/images/8/8d/Jishou_Akuyaku_Reijou_na_Tsuma_no_Kansatsu_Kiroku_LN2.jpg/revision/latest?cb=20250410060352",
+      "publishers": [
+        {
+          "name": "Hanashi Media",
+          "site": "https://hanashi.media/",
+          "siteLink": "https://hanashi.media/series/an-observation-log-of-my-fiancee"
+        }
+      ],
+      "volume": 2,
+      "bookCloudId": "1nMbHMSQYvJ2sccPg7bg3RG3ykFJT1nwE",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 189560
+        },
+        {
+          "name": "RanobeDB",
+          "id": 13457
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 36784
+      }
+    },
+    {
+      "id": 1070,
+      "title": "An Observation Log of My Wife Who Calls Herself a Villainess",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai/images/b/be/Jishou_Akuyaku_Reijou_na_Tsuma_no_Kansatsu_Kiroku_LN1.jpg/revision/latest?cb=20250410060344",
+      "publishers": [
+        {
+          "name": "Hanashi Media",
+          "site": "https://hanashi.media/",
+          "siteLink": "https://hanashi.media/series/an-observation-log-of-my-fiancee"
+        }
+      ],
+      "volume": 1,
+      "bookCloudId": "1p2eNV3Q6xojdAqsBmogkNOBUiqU56WYs",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 189560
+        },
+        {
+          "name": "RanobeDB",
+          "id": 13457
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 35232
+      }
+    },
+    {
       "id": 1069,
       "title": "A Tale of the Secret Saint",
       "coverUrl": "https://static.wikia.nocookie.net/a-tale-of-the-secret-saint/images/f/f6/Great_Saintess_LN_11.webp/revision/latest?cb=20260409022231",
