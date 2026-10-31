@@ -1,4 +1,4 @@
-const { books } = require("../data/novels.json");
+const { books } = require("../utils/catalog");
 
 module.exports = function loadBook(req, res, next, value) {
     const id = Number(value);
