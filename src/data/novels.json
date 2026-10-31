@@ -1,6 +1,706 @@
 {
   "books": [
     {
+      "id": 1059,
+      "title": "A Tale of the Secret Saint",
+      "coverUrl": "https://static.wikia.nocookie.net/a-tale-of-the-secret-saint/images/f/f6/Great_Saintess_LN_11.webp/revision/latest?cb=20260409022231",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://sevenseasentertainment.com/",
+          "siteLink": "https://sevenseasentertainment.com/series/a-tale-of-the-secret-saint-light-novel/"
+        }
+      ],
+      "volume": 11,
+      "bookCloudId": "14ish7pgY3r8pQPNvFizcbAsuan6e15yY",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 128053
+        },
+        {
+          "name": "RanobeDB",
+          "id": 9685
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 45873
+      }
+    },
+    {
+      "id": 1057,
+      "title": "A Tale of the Secret Saint",
+      "coverUrl": "https://static.wikia.nocookie.net/a-tale-of-the-secret-saint/images/0/0b/Great_Saintess_LN_10.webp/revision/latest?cb=20260409022231",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://sevenseasentertainment.com/",
+          "siteLink": "https://sevenseasentertainment.com/series/a-tale-of-the-secret-saint-light-novel/"
+        }
+      ],
+      "volume": 10,
+      "bookCloudId": "1Np6mfURbulTTl-lgu90mYez_7BXeTXGL",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 128053
+        },
+        {
+          "name": "RanobeDB",
+          "id": 9685
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 42358
+      }
+    },
+    {
+      "id": 1067,
+      "title": "A Tale of the Secret Saint",
+      "coverUrl": "https://static.wikia.nocookie.net/a-tale-of-the-secret-saint/images/0/0a/Great_Saintess_LN_9.webp/revision/latest?cb=20260409022231",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://sevenseasentertainment.com/",
+          "siteLink": "https://sevenseasentertainment.com/series/a-tale-of-the-secret-saint-light-novel/"
+        }
+      ],
+      "volume": 9,
+      "bookCloudId": "1ZuRqkKzjKw7ZnvC_FV-ZS8FM6hVNiKDB",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 128053
+        },
+        {
+          "name": "RanobeDB",
+          "id": 9685
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 40030
+      }
+    },
+    {
+      "id": 1066,
+      "title": "A Tale of the Secret Saint",
+      "coverUrl": "https://static.wikia.nocookie.net/a-tale-of-the-secret-saint/images/2/2c/Great_Saintess_LN_8.webp/revision/latest?cb=20260409022230",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://sevenseasentertainment.com/",
+          "siteLink": "https://sevenseasentertainment.com/series/a-tale-of-the-secret-saint-light-novel/"
+        }
+      ],
+      "volume": 8,
+      "bookCloudId": "1WwwNk6IxfRCgQ_W1aQg3C-f96Q0Nk100",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 128053
+        },
+        {
+          "name": "RanobeDB",
+          "id": 9685
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 37731
+      }
+    },
+    {
+      "id": 1065,
+      "title": "A Tale of the Secret Saint",
+      "coverUrl": "https://static.wikia.nocookie.net/a-tale-of-the-secret-saint/images/9/97/Great_Saintess_LN_7.webp/revision/latest?cb=20260409022230",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://sevenseasentertainment.com/",
+          "siteLink": "https://sevenseasentertainment.com/series/a-tale-of-the-secret-saint-light-novel/"
+        }
+      ],
+      "volume": 7,
+      "bookCloudId": "156cTlEXXNjaAc_3qQm8eCH5gNMu8uHqQ",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 128053
+        },
+        {
+          "name": "RanobeDB",
+          "id": 9685
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 36116
+      }
+    },
+    {
+      "id": 1064,
+      "title": "A Tale of the Secret Saint",
+      "coverUrl": "https://static.wikia.nocookie.net/a-tale-of-the-secret-saint/images/8/8a/Great_Saintess_LN_6.webp/revision/latest?cb=20260409022230",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://sevenseasentertainment.com/",
+          "siteLink": "https://sevenseasentertainment.com/series/a-tale-of-the-secret-saint-light-novel/"
+        }
+      ],
+      "volume": 6,
+      "bookCloudId": "1Iwpk6jLTnjyHxkX1mVxYI4u3avPKn3io",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 128053
+        },
+        {
+          "name": "RanobeDB",
+          "id": 9685
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 33963
+      }
+    },
+    {
+      "id": 1063,
+      "title": "A Tale of the Secret Saint",
+      "coverUrl": "https://static.wikia.nocookie.net/a-tale-of-the-secret-saint/images/9/96/Great_Saintess_LN_5.webp/revision/latest?cb=20260409022230",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://sevenseasentertainment.com/",
+          "siteLink": "https://sevenseasentertainment.com/series/a-tale-of-the-secret-saint-light-novel/"
+        }
+      ],
+      "volume": 5,
+      "bookCloudId": "1Pgutzx3ztbz80HdtKy9qSvE2DZVE2kP3",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 128053
+        },
+        {
+          "name": "RanobeDB",
+          "id": 9685
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 32230
+      }
+    },
+    {
+      "id": 1062,
+      "title": "A Tale of the Secret Saint",
+      "coverUrl": "https://static.wikia.nocookie.net/a-tale-of-the-secret-saint/images/b/b8/Great_Saintess_LN_4.webp/revision/latest?cb=20260409022230",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://sevenseasentertainment.com/",
+          "siteLink": "https://sevenseasentertainment.com/series/a-tale-of-the-secret-saint-light-novel/"
+        }
+      ],
+      "volume": 4,
+      "bookCloudId": "12x9xtU3ElhCtAfl6jmzML95y9fjOY1OT",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 128053
+        },
+        {
+          "name": "RanobeDB",
+          "id": 9685
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 31138
+      }
+    },
+    {
+      "id": 1061,
+      "title": "A Tale of the Secret Saint",
+      "coverUrl": "https://static.wikia.nocookie.net/a-tale-of-the-secret-saint/images/a/a9/Great_Saintess_LN_3.webp/revision/latest?cb=20260409022229",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://sevenseasentertainment.com/",
+          "siteLink": "https://sevenseasentertainment.com/series/a-tale-of-the-secret-saint-light-novel/"
+        }
+      ],
+      "volume": 3,
+      "bookCloudId": "1f77cyomRQFJInzahUOiyTRMUI_XPX9rr",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 128053
+        },
+        {
+          "name": "RanobeDB",
+          "id": 9685
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 29261
+      }
+    },
+    {
+      "id": 1060,
+      "title": "A Tale of the Secret Saint",
+      "coverUrl": "https://static.wikia.nocookie.net/a-tale-of-the-secret-saint/images/f/fd/Great_Saintess_LN_2.webp/revision/latest?cb=20260409022230",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://sevenseasentertainment.com/",
+          "siteLink": "https://sevenseasentertainment.com/series/a-tale-of-the-secret-saint-light-novel/"
+        }
+      ],
+      "volume": 2,
+      "bookCloudId": "1yVHNgLYdM7G6lomSdcHTH2MbnlmxRcKo",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 128053
+        },
+        {
+          "name": "RanobeDB",
+          "id": 9685
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 27782
+      }
+    },
+    {
+      "id": 1059,
+      "title": "A Tale of the Secret Saint",
+      "coverUrl": "https://static.wikia.nocookie.net/a-tale-of-the-secret-saint/images/6/6e/Great_Saintess_LN_1.webp/revision/latest?cb=20260409022224",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://sevenseasentertainment.com/",
+          "siteLink": "https://sevenseasentertainment.com/series/a-tale-of-the-secret-saint-light-novel/"
+        }
+      ],
+      "volume": 1,
+      "bookCloudId": "1_QZ5c8OErEEr_oIpT7dIFcUmy8gdWEsO",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 128053
+        },
+        {
+          "name": "RanobeDB",
+          "id": 9685
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 26615
+      }
+    },
+    {
+      "id": 1058,
+      "title": "A Livid Lady's Guide to Getting Even: How I Crushed My Homeland with My Mighty Grimoires",
+      "coverUrl": "https://static.wikia.nocookie.net/a-livid-lady-s-guide-to-getting-even/images/f/f8/Volume_7.jpg/revision/latest?cb=20260103182819",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/a-livid-lady-s-guide-to-getting-even-how-i-crushed-my-homeland-with-my-mighty-grimoires"
+        }
+      ],
+      "volume": 7,
+      "bookCloudId": "19T5F5T72UUp5VS-KfCYKUhk6rOAyZQpf",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 147275
+        },
+        {
+          "name": "RanobeDB",
+          "id": 13495
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 47530
+      }
+    },
+    {
+      "id": 1057,
+      "title": "A Livid Lady's Guide to Getting Even: How I Crushed My Homeland with My Mighty Grimoires",
+      "coverUrl": "https://static.wikia.nocookie.net/a-livid-lady-s-guide-to-getting-even/images/5/54/Volume_6.jpg/revision/latest?cb=20260103182814",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/a-livid-lady-s-guide-to-getting-even-how-i-crushed-my-homeland-with-my-mighty-grimoires"
+        }
+      ],
+      "volume": 6,
+      "bookCloudId": "1ScZHx6pJgTd3vhiE9wOh5FWrLFAaPstR",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 147275
+        },
+        {
+          "name": "RanobeDB",
+          "id": 13495
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 44413
+      }
+    },
+    {
+      "id": 1056,
+      "title": "A Livid Lady's Guide to Getting Even: How I Crushed My Homeland with My Mighty Grimoires",
+      "coverUrl": "https://static.wikia.nocookie.net/a-livid-lady-s-guide-to-getting-even/images/1/15/Volume_5.jpg/revision/latest?cb=20260103182809",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/a-livid-lady-s-guide-to-getting-even-how-i-crushed-my-homeland-with-my-mighty-grimoires"
+        }
+      ],
+      "volume": 5,
+      "bookCloudId": "10B5ACKBYyVeYlYrozOsd-hoYXiEIgpmr",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 147275
+        },
+        {
+          "name": "RanobeDB",
+          "id": 13495
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 40932
+      }
+    },
+    {
+      "id": 1055,
+      "title": "A Livid Lady's Guide to Getting Even: How I Crushed My Homeland with My Mighty Grimoires",
+      "coverUrl": "https://static.wikia.nocookie.net/a-livid-lady-s-guide-to-getting-even/images/e/e0/Volume_4.jpg/revision/latest?cb=20260103182803",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/a-livid-lady-s-guide-to-getting-even-how-i-crushed-my-homeland-with-my-mighty-grimoires"
+        }
+      ],
+      "volume": 4,
+      "bookCloudId": "1PoFCWeDGJVn42LRITpH49PVLlvYP9lgs",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 147275
+        },
+        {
+          "name": "RanobeDB",
+          "id": 13495
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 39171
+      }
+    },
+    {
+      "id": 1054,
+      "title": "A Livid Lady's Guide to Getting Even: How I Crushed My Homeland with My Mighty Grimoires",
+      "coverUrl": "https://static.wikia.nocookie.net/a-livid-lady-s-guide-to-getting-even/images/d/d4/Volume_3.jpg/revision/latest?cb=20260103182800",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/a-livid-lady-s-guide-to-getting-even-how-i-crushed-my-homeland-with-my-mighty-grimoires"
+        }
+      ],
+      "volume": 3,
+      "bookCloudId": "12oM7w4K0KXdjgCKr4ZtebB6z9OPgZ_jC",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 147275
+        },
+        {
+          "name": "RanobeDB",
+          "id": 13495
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 37500
+      }
+    },
+    {
+      "id": 1053,
+      "title": "A Livid Lady's Guide to Getting Even: How I Crushed My Homeland with My Mighty Grimoires",
+      "coverUrl": "https://static.wikia.nocookie.net/a-livid-lady-s-guide-to-getting-even/images/5/53/Volume_2.jpg/revision/latest?cb=20260103182757",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/a-livid-lady-s-guide-to-getting-even-how-i-crushed-my-homeland-with-my-mighty-grimoires"
+        }
+      ],
+      "volume": 2,
+      "bookCloudId": "1C60RJJoD5gtMN77jx8xwlOOjlO-gH2Je",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 147275
+        },
+        {
+          "name": "RanobeDB",
+          "id": 13495
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 36390
+      }
+    },
+    {
+      "id": 1052,
+      "title": "A Livid Lady's Guide to Getting Even: How I Crushed My Homeland with My Mighty Grimoires",
+      "coverUrl": "https://static.wikia.nocookie.net/a-livid-lady-s-guide-to-getting-even/images/b/b1/Volume_1.jpg/revision/latest?cb=20260103182754",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/a-livid-lady-s-guide-to-getting-even-how-i-crushed-my-homeland-with-my-mighty-grimoires"
+        }
+      ],
+      "volume": 1,
+      "bookCloudId": "1BbSt7pEQqCZisCE14BxSqaruV7ThdUwy",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 147275
+        },
+        {
+          "name": "RanobeDB",
+          "id": 13495
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 35319
+      }
+    },
+    {
+      "id": 1051,
+      "title": "7th Time Loop: The Villainess Enjoys a Carefree Life Married to Her Worst Enemy! Short Story Collection",
+      "coverUrl": "https://static.wikia.nocookie.net/7th-time-loop/images/1/18/7TL_Short_Story_Collection_Japanese_Cover.jpg/revision/latest?cb=20260121054758",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://sevenseasentertainment.com/",
+          "siteLink": "https://sevenseasentertainment.com/series/7th-time-loop-the-villainess-enjoys-a-carefree-life-married-to-her-worst-enemy-light-novel/"
+        }
+      ],
+      "volume": 1,
+      "bookCloudId": "1_SWO236R8jXQ8W_9LhG1jAFXLEYWuHXp",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 129152
+        },
+        {
+          "name": "RanobeDB",
+          "id": 11430
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 46938
+      }
+    },
+    {
+      "id": 1050,
+      "title": "7th Time Loop: The Villainess Enjoys a Carefree Life Married to Her Worst Enemy!",
+      "coverUrl": "https://static.wikia.nocookie.net/7th-time-loop/images/d/db/7th_Time_Loop_Light_Novel_Volume_6_Cover_Japanese.jpg/revision/latest?cb=20240216133501",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://sevenseasentertainment.com/",
+          "siteLink": "https://sevenseasentertainment.com/series/7th-time-loop-the-villainess-enjoys-a-carefree-life-married-to-her-worst-enemy-light-novel/"
+        }
+      ],
+      "volume": 6,
+      "bookCloudId": "1YwojZUGQL5lm5KRJPkgmCPdZnSnk7UQO",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 129152
+        },
+        {
+          "name": "RanobeDB",
+          "id": 11430
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 40743
+      }
+    },
+    {
+      "id": 1049,
+      "title": "7th Time Loop: The Villainess Enjoys a Carefree Life Married to Her Worst Enemy!",
+      "coverUrl": "https://static.wikia.nocookie.net/7th-time-loop/images/8/8a/7th_Time_Loop_Light_Novel_Volume_5_Cover_Japanese.jpg/revision/latest?cb=20240216133259",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://sevenseasentertainment.com/",
+          "siteLink": "https://sevenseasentertainment.com/series/7th-time-loop-the-villainess-enjoys-a-carefree-life-married-to-her-worst-enemy-light-novel/"
+        }
+      ],
+      "volume": 5,
+      "bookCloudId": "1t5j70CU6mOaR5z3iaGuiGUuK-zzxgzZZ",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 129152
+        },
+        {
+          "name": "RanobeDB",
+          "id": 11430
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 39502
+      }
+    },
+    {
+      "id": 1048,
+      "title": "7th Time Loop: The Villainess Enjoys a Carefree Life Married to Her Worst Enemy!",
+      "coverUrl": "https://static.wikia.nocookie.net/7th-time-loop/images/f/fa/7th_Time_Loop_Light_Novel_Volume_4_Cover_Japanese.jpg/revision/latest?cb=20240216132848",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://sevenseasentertainment.com/",
+          "siteLink": "https://sevenseasentertainment.com/series/7th-time-loop-the-villainess-enjoys-a-carefree-life-married-to-her-worst-enemy-light-novel/"
+        }
+      ],
+      "volume": 4,
+      "bookCloudId": "1IdbJy0vy3PZLx4tpy9oqOgKN-AmhfzK7",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 129152
+        },
+        {
+          "name": "RanobeDB",
+          "id": 11430
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 33781
+      }
+    },
+    {
+      "id": 1047,
+      "title": "7th Time Loop: The Villainess Enjoys a Carefree Life Married to Her Worst Enemy!",
+      "coverUrl": "https://static.wikia.nocookie.net/7th-time-loop/images/d/d2/7th_Time_Loop_Light_Novel_Volume_3_Cover_Japanese.jpg/revision/latest?cb=20240216131931",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://sevenseasentertainment.com/",
+          "siteLink": "https://sevenseasentertainment.com/series/7th-time-loop-the-villainess-enjoys-a-carefree-life-married-to-her-worst-enemy-light-novel/"
+        }
+      ],
+      "volume": 3,
+      "bookCloudId": "1qMIO0dULNyMlZ7Mqi4yqRZqtUlJpc6Fp",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 129152
+        },
+        {
+          "name": "RanobeDB",
+          "id": 11430
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 32486
+      }
+    },
+    {
+      "id": 1046,
+      "title": "7th Time Loop: The Villainess Enjoys a Carefree Life Married to Her Worst Enemy!",
+      "coverUrl": "https://static.wikia.nocookie.net/7th-time-loop/images/d/df/7th_Time_Loop_Light_Novel_Volume_2_Cover_Japanese.jpg/revision/latest?cb=20240216131319",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://sevenseasentertainment.com/",
+          "siteLink": "https://sevenseasentertainment.com/series/7th-time-loop-the-villainess-enjoys-a-carefree-life-married-to-her-worst-enemy-light-novel/"
+        }
+      ],
+      "volume": 2,
+      "bookCloudId": "16bCmQm6T7vOA6wo_gabklrzQzKoMm9_V",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 129152
+        },
+        {
+          "name": "RanobeDB",
+          "id": 11430
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 31585
+      }
+    },
+    {
+      "id": 1045,
+      "title": "7th Time Loop: The Villainess Enjoys a Carefree Life Married to Her Worst Enemy!",
+      "coverUrl": "https://static.wikia.nocookie.net/7th-time-loop/images/2/2a/7th_Time_Loop_Light_Novel_Volume_1_Cover_English.jpg/revision/latest?cb=20240216130905",
+      "publishers": [
+        {
+          "name": "Seven Seas Entertainment",
+          "site": "https://sevenseasentertainment.com/",
+          "siteLink": "https://sevenseasentertainment.com/series/7th-time-loop-the-villainess-enjoys-a-carefree-life-married-to-her-worst-enemy-light-novel/"
+        }
+      ],
+      "volume": 1,
+      "bookCloudId": "1S7_a30lGoF1OfuI30RmoNMhcQ7koXY0k",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 129152
+        },
+        {
+          "name": "RanobeDB",
+          "id": 11430
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 30523
+      }
+    },
+    {
       "id": 1044,
       "title": "A Late-Start Tamer’s Laid-Back Life",
       "genres": ["Adventure", "Comedy", "Fantasy"],
