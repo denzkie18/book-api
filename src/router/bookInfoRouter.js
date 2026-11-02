@@ -2,6 +2,7 @@ const express = require("express");
 const AnilistProvider = require("../providers/AnilistProvider");
 const RanobeDBProvider = require("../providers/RanobeDBProvider");
 const loadBook = require("../middleware/loadBook");
+
 const {
   findProvider,
   pickBookFields,
@@ -57,6 +58,7 @@ router.get("/:id", async (req, res) => {
       bookCloudId,
       publishers,
       coverUrl,
+      bookTitle: title,
       volume,
       // Keep AniList's description if RanobeDB has none.
       description: ranobedbDescription ?? aData?.description ?? null,
