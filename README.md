@@ -19,8 +19,8 @@ npm start
 | GET route | Purpose |
 | --- | --- |
 | `/api/v0/novel/latest` | Latest locally added volumes, descending local ID |
-| `/api/v0/novel/popular` | Catalog volumes ranked by AniList popularity |
-| `/api/v0/novel/trending` | Catalog volumes ranked by AniList trending |
+| `/api/v0/novel/popular` | Catalog volume 1 books ranked by AniList popularity |
+| `/api/v0/novel/trending` | Catalog volume 1 books ranked by AniList trending |
 | `/api/v0/novel` | Browse/search/filter the local catalog |
 | `/api/v0/novel/:id` | One enriched book, in `{ book, warnings? }` |
 | `/api/v0/novel/book/:id` | Rich AniList book detail, RanobeDB description, related local volumes |
@@ -59,7 +59,7 @@ curl 'http://localhost:3000/api/v0/novel/series/1059'
 
 Browse with a title or genre/tag filter returns one representative volume per RanobeDB series (AniList as fallback), preferring the lowest volume. Latest always returns individual volumes, even with filters. Unfiltered browse returns all unique volumes. Both list routes paginate; `total` is the count **after filtering/deduplication and before pagination**. Out-of-range pages return an empty `books` array. Latest retains the original **local ID ordering**, not a global publication-date ranking.
 
-Popular and trending fetch AniList metrics only for IDs referenced in `src/data/novels.json` (the local catalog); they do not return entries from AniList's global charts that aren't in that file. They rank all matching, deduplicated catalog volumes before pagination, so volumes of the same series share its score and may appear together. Ties use ascending local ID. Records without an AniList mapping or the relevant metric are excluded; a score of zero is valid. Popular uses AniList `popularity`; trending uses AniList `trending`, which is a current activity indicator, not an all-time popularity count. Ranked routes fail with the provider status if AniList cannot be reached, rather than returning an incorrect ranking. Filters apply before ranking. Their metadata is cached in-process for one hour and can therefore lag AniList.
+Popular and trending fetch AniList metrics only for IDs referenced in `src/data/novels.json` (the local catalog); they do not return entries from AniList's global charts that aren't in that file. They return only catalog entries whose volume is exactly 1, deduplicated by provider book identity, and rank them before pagination. Series without a cataloged volume 1 are excluded rather than substituted with a later volume; distinct volume-1 records can still share a series score. Ties use ascending local ID. Records without an AniList mapping or the relevant metric are excluded; a score of zero is valid. Popular uses AniList `popularity`; trending uses AniList `trending`, which is a current activity indicator, not an all-time popularity count. Ranked routes fail with the provider status if AniList cannot be reached, rather than returning an incorrect ranking. Filters apply before ranking. Their metadata is cached in-process for one hour and can therefore lag AniList.
 
 ## Compact book contract
 

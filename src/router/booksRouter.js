@@ -24,6 +24,8 @@ async function list(req, res, modeName = 'browse') {
     const genres = parseGenres(req.query.genres), tags = parseGenres(req.query.tags, 'tags');
     const search = (req.query.q ?? '').trim().toLowerCase();
     let results = uniqueBooks(books).filter(b => b.title.toLowerCase().includes(search));
+    // Popular and trending list volume 1 only; no fallback to a later volume.
+    if (ranking) results = results.filter(b => b.volume === 1);
     let summaries;
     if (genres.length || tags.length || ranking) {
       // Fetch only AniList metadata for candidate series. Do not request every
@@ -37,7 +39,7 @@ async function list(req, res, modeName = 'browse') {
     if (modeName === 'browse' && (search || genres.length || tags.length)) results = onePerSeries(results);
     if (latest) results.sort((a, b) => b.id - a.id);
     if (ranking) {
-      // Ranking is computed across matching catalog books, not a page of AniList's global chart.
+      // Rank matching catalog volume-one books, not AniList's global chart.
       // Missing metrics are excluded rather than fabricating a rank.
       const value = book => summaries.get(findProvider(book, 'anilist')?.id)?.[ranking];
       results = results.filter(book => typeof value(book) === 'number' && Number.isFinite(value(book)));

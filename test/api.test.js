@@ -65,12 +65,13 @@ test('list provider failure keeps exact fields and reports warnings', async () =
 test('catalog IDs unique and both formerly conflicting volumes preserved', () => { assert.equal(new Set(books.map(b => b.id)).size, books.length); assert.equal(books.find(b => b.id === 1059).volume, 1); assert.equal(books.find(b => b.id === 1069).volume, 11); });
 
 
-test('popular and trending rank catalog volumes before pagination with filters', async () => {
+test('popular and trending rank only catalog volume 1 before pagination with filters', async () => {
   const provider = require('../src/providers/AnilistProvider');
   const ranobe = require('../src/providers/RanobeDBProvider');
   const { uniqueBooks, findProvider } = require('../src/utils/seriesBooks');
   const original = provider.getNovelSummaries, originalBook = ranobe.getBookById;
-  const eligible = uniqueBooks(books).filter(b => findProvider(b, 'anilist'));
+  const eligible = uniqueBooks(books).filter(b => b.volume === 1 && findProvider(b, 'anilist'));
+  assert.ok(uniqueBooks(books).some(b => b.volume !== 1), 'fixture has later volumes to exclude');
   const distinct = [...new Set(eligible.map(b => findProvider(b, 'anilist').id))].sort((a,b) => a-b);
   assert.ok(distinct.length > 2);
   const unavailable = distinct[0];
@@ -92,7 +93,7 @@ test('popular and trending rank catalog volumes before pagination with filters',
         assert.equal(response.status, 200);
         assert.equal(data.total, expected.length);
         assert.deepEqual(data.books.map(b => b.id), expected.slice((page-1)*3,page*3).map(b => b.id));
-        assert.ok(data.books.every(b => books.some(local => local.id === b.id)));
+        assert.ok(data.books.every(b => b.volume === 1 && books.some(local => local.id === b.id)));
         if (key === 'trending') assert.ok(data.books.every(b => b.trending === summaries.get(b.anilist_id).trending));
         else assert.deepEqual(Object.keys(data.books[0]), expectedKeys());
       }
@@ -100,8 +101,10 @@ test('popular and trending rank catalog volumes before pagination with filters',
       assert.deepEqual(filtered.data.books.map(b => b.id), expected.filter(b => summaries.get(findProvider(b, 'anilist').id).genres.includes('Romance')).map(b => b.id));
     }
     assert.notDeepEqual(expectedRank('popularity').map(b => b.id), expectedRank('trending').map(b => b.id));
-    const largestSeriesCount = Math.max(...distinct.map(id => eligible.filter(b => findProvider(b, 'anilist').id === id).length));
-    assert.ok(largestSeriesCount > 1, 'fixture includes multiple volumes per series');
+    const allPopular = await get('/popular?perPage=100');
+    assert.ok(allPopular.data.books.every(b => b.volume === 1));
+    const allTrending = await get('/trending?perPage=100');
+    assert.ok(allTrending.data.books.every(b => b.volume === 1));
   } finally { provider.getNovelSummaries = original; ranobe.getBookById = originalBook; }
 });
 function expectedKeys() { return expected; }
