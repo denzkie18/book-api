@@ -11,7 +11,7 @@ function endpoint() {
   const params = new URLSearchParams();
   for (const key of ['q', 'genres', 'tags']) { const value = $(key).value.trim(); if (value) params.set(key, value); }
   params.set('match', $('match').value); params.set('page', page); params.set('perPage', $('perPage').value);
-  return `/api/v0/novel${mode === 'latest' ? '/latest' : ''}?${params}`;
+  return `/api/v0/novel${['latest', 'popular', 'trending'].includes(mode) ? `/${mode}` : ''}?${params}`;
 }
 function preview() { try { $('request-path').textContent = endpoint(); } catch (e) { $('request-path').textContent = e.message; } }
 function notice(message = '', error = false) { $('notice').hidden = !message; $('notice').textContent = message; $('notice').className = `notice${error ? ' error' : ''}`; }
@@ -48,10 +48,11 @@ function card(book) {
     const text = book.description.replace(/<[^>]*>/g, '').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
     article.append(node('p', 'description', text));
   }
-  if (book.weighted_score != null || book.popularity != null) {
+  if (book.weighted_score != null || book.popularity != null || book.trending != null) {
     const stats = node('div', 'stats');
     if (book.weighted_score != null) { const score = node('span', '', 'Score '); score.append(node('strong', '', `${book.weighted_score}/100`)); stats.append(score); }
     if (book.popularity != null) { const popularity = node('span', '', 'Popularity '); popularity.append(node('strong', '', new Intl.NumberFormat().format(book.popularity))); stats.append(popularity); }
+    if (book.trending != null) { const trending = node('span', '', 'Trending '); trending.append(node('strong', '', new Intl.NumberFormat().format(book.trending))); stats.append(trending); }
     article.append(stats);
   }
   const open = node('button', 'open-book', 'Explore series →'); open.type = 'button';
