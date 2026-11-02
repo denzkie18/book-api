@@ -228,7 +228,7 @@ const NOVEL_QUERY = `
 `;
 
 const batchFlights = new Map();
-const SUMMARY_FIELDS = `id genres tags { name } popularity averageScore coverImage { color }`;
+const SUMMARY_FIELDS = `id genres tags { name } popularity trending averageScore coverImage { color }`;
 function validId(id) {
   if (!Number.isInteger(id) || id <= 0 || id > 2147483647) throw new ProviderError("Invalid AniList ID.", 400);
 }

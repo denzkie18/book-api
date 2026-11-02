@@ -13,7 +13,9 @@ function pagination(query) {
   if (!Number.isSafeInteger(Number(page)) || !Number.isSafeInteger(Number(perPage)) || Number(perPage) > 100) bad('page must be a safe positive integer and perPage must be between 1 and 100.');
   return { page: Number(page), perPage: Number(perPage) };
 }
-async function list(req, res, latest = false) {
+async function list(req, res, modeName = 'browse') {
+  const latest = modeName === 'latest';
+  const ranking = modeName === 'popular' ? 'popularity' : modeName === 'trending' ? 'trending' : null;
   try {
     const { page, perPage } = pagination(req.query);
     if (req.query.q !== undefined && (typeof req.query.q !== 'string' || req.query.q.length > 200)) bad('q must be a string at most 200 characters long.');
@@ -23,7 +25,7 @@ async function list(req, res, latest = false) {
     const search = (req.query.q ?? '').trim().toLowerCase();
     let results = uniqueBooks(books).filter(b => b.title.toLowerCase().includes(search));
     let summaries;
-    if (genres.length || tags.length) {
+    if (genres.length || tags.length || ranking) {
       // Fetch only AniList metadata for candidate series. Do not request every
       // RanobeDB book just to evaluate a filter. Fail closed if AniList fails.
       summaries = await AniList.getNovelSummaries(results.map(b => findProvider(b, 'anilist')?.id).filter(Boolean));
@@ -32,16 +34,28 @@ async function list(req, res, latest = false) {
         return a && matches(a.genres ?? [], genres, mode) && matches((a.tags ?? []).map(t => t.name), tags, mode);
       });
     }
-    if (!latest && (search || genres.length || tags.length)) results = onePerSeries(results);
+    if (modeName === 'browse' && (search || genres.length || tags.length)) results = onePerSeries(results);
     if (latest) results.sort((a, b) => b.id - a.id);
+    if (ranking) {
+      // Ranking is computed across matching catalog books, not a page of AniList's global chart.
+      // Missing metrics are excluded rather than fabricating a rank.
+      const value = book => summaries.get(findProvider(book, 'anilist')?.id)?.[ranking];
+      results = results.filter(book => typeof value(book) === 'number' && Number.isFinite(value(book)));
+      results.sort((a, b) => value(b) - value(a) || a.id - b.id);
+    }
     const total = results.length, totalPages = Math.ceil(total / perPage);
     const slice = page > totalPages ? [] : results.slice((page - 1) * perPage, page * perPage);
     const data = await enrichBooks(slice, summaries);
+    if (ranking === 'trending') {
+      for (const book of data.books) book.trending = summaries.get(book.anilist_id)?.trending ?? null;
+    }
     return res.json({ page, perPage, total, totalPages, hasNextPage: page < totalPages, ...data });
   } catch (error) { return httpError(res, error); }
 }
 router.get('/', (req, res) => list(req, res));
-router.get('/latest', (req, res) => list(req, res, true));
+router.get('/latest', (req, res) => list(req, res, 'latest'));
+router.get('/popular', (req, res) => list(req, res, 'popular'));
+router.get('/trending', (req, res) => list(req, res, 'trending'));
 router.param('id', loadBook);
 router.get('/:id', async (req, res) => {
   try {

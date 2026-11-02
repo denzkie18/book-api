@@ -19,6 +19,8 @@ npm start
 | GET route | Purpose |
 | --- | --- |
 | `/api/v0/novel/latest` | Latest locally added volumes, descending local ID |
+| `/api/v0/novel/popular` | Catalog volumes ranked by AniList popularity |
+| `/api/v0/novel/trending` | Catalog volumes ranked by AniList trending |
 | `/api/v0/novel` | Browse/search/filter the local catalog |
 | `/api/v0/novel/:id` | One enriched book, in `{ book, warnings? }` |
 | `/api/v0/novel/book/:id` | Rich AniList book detail, RanobeDB description, related local volumes |
@@ -26,7 +28,7 @@ npm start
 
 All `:id` values are **local catalog book IDs**, including on the series endpoint. They are not AniList or RanobeDB IDs. The catalog, not AniList's entire library, defines which books are returned.
 
-### Latest and browse query parameters
+### List query parameters
 
 - `q`: case-insensitive local title search, up to 200 characters.
 - `genres`: AniList genre name(s), case-insensitive.
@@ -38,6 +40,10 @@ Supported filter syntax: `genres=Romance`, `genres=Romance,Drama`, `genres=[roma
 
 ```sh
 curl 'http://localhost:3000/api/v0/novel/latest?page=1&perPage=6'
+
+curl 'http://localhost:3000/api/v0/novel/popular?page=1&perPage=6'
+
+curl -G 'http://localhost:3000/api/v0/novel/trending' --data-urlencode 'genres=Romance,Drama' --data-urlencode 'perPage=6'
 
 curl -G 'http://localhost:3000/api/v0/novel' \
   --data-urlencode 'genres=[fantasy,adventure]' \
@@ -53,9 +59,11 @@ curl 'http://localhost:3000/api/v0/novel/series/1059'
 
 Browse with a title or genre/tag filter returns one representative volume per RanobeDB series (AniList as fallback), preferring the lowest volume. Latest always returns individual volumes, even with filters. Unfiltered browse returns all unique volumes. Both list routes paginate; `total` is the count **after filtering/deduplication and before pagination**. Out-of-range pages return an empty `books` array. Latest retains the original **local ID ordering**, not a global publication-date ranking.
 
+Popular and trending fetch AniList metrics only for IDs referenced in `src/data/novels.json` (the local catalog); they do not return entries from AniList's global charts that aren't in that file. They rank all matching, deduplicated catalog volumes before pagination, so volumes of the same series share its score and may appear together. Ties use ascending local ID. Records without an AniList mapping or the relevant metric are excluded; a score of zero is valid. Popular uses AniList `popularity`; trending uses AniList `trending`, which is a current activity indicator, not an all-time popularity count. Ranked routes fail with the provider status if AniList cannot be reached, rather than returning an incorrect ranking. Filters apply before ranking. Their metadata is cached in-process for one hour and can therefore lag AniList.
+
 ## Compact book contract
 
-Latest, browse, and `/novel/:id` books contain exactly these 14 keys. Pagination and partial-failure warnings live outside the book object. No cloud storage IDs, provider payloads, tags, or other fields leak into this projection.
+Latest, browse, popular, and `/novel/:id` books contain exactly these 14 keys. Trending returns the same keys plus `trending` (the AniList activity metric). Pagination and partial-failure warnings live outside the book object. No cloud storage IDs, provider payloads, tags, or other fields leak into this projection.
 
 | Key | Type / source |
 | --- | --- |
@@ -107,7 +115,7 @@ Caches/queues are in memory and reset on restart. Multiple replicas/workers or o
 
 ## UI
 
-The new `public/` interface supports actual same-origin fetch requests, 650 ms debounced live mode, manual send, title/genre/tag controls, list pagination, series/book endpoint selection, cards, raw JSON, copy JSON, elapsed time, partial-metadata notices, and loading/empty/error states. Stale responses are canceled/ignored. Provider text is inserted with `textContent`, never trusted as HTML. The layout adapts to mobile, follows system light/dark theme, and respects reduced motion. No external UI framework or build step is required.
+The new `public/` interface supports actual same-origin fetch requests, 650 ms debounced live mode, manual send, title/genre/tag controls, list pagination, popular/trending and series/book endpoint selection, cards, raw JSON, copy JSON, elapsed time, partial-metadata notices, and loading/empty/error states. Stale responses are canceled/ignored. Provider text is inserted with `textContent`, never trusted as HTML. The layout adapts to mobile, follows system light/dark theme, and respects reduced motion. No external UI framework or build step is required.
 
 No original HTML was attached, so `public/index.html`, `styles.css`, and `app.js` are a new replacement playground rather than edits to an existing page.
 
