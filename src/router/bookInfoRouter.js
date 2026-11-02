@@ -58,7 +58,7 @@ router.get("/:id", async (req, res) => {
       bookCloudId,
       publishers,
       coverUrl,
-      bookTitle: title,
+      bookTitle: req.book.title,
       volume,
       // Keep AniList's description if RanobeDB has none.
       description: ranobedbDescription ?? aData?.description ?? null,
