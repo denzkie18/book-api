@@ -266,4 +266,30 @@ async function getNovelSummaries(ids) {
   }
   return new Map(unique.map(id => [id, client.peek(`summary:${id}`) ?? null]));
 }
-module.exports = { getNovelById, getNovelSummaries };
+// Ask AniList to sort the *whole catalog ID set*, paginating the sorted
+// response before local filtering/pagination. Never sort separate ID chunks.
+async function getRankedNovelSummaries(ids, sort) {
+  if (!['POPULARITY_DESC', 'TRENDING_DESC'].includes(sort)) throw new ProviderError('Invalid AniList sort.', 400);
+  const unique = [...new Set(ids)].sort((a, b) => a - b);
+  unique.forEach(validId);
+  if (!unique.length) return [];
+  return client.cached(`ranked:${sort}:${unique.join(',')}`, async () => {
+    const results = [], seen = new Set(), allowed = new Set(unique);
+    for (let page = 1; page <= unique.length + 1; page++) {
+      const payload = await client.request('', {
+        query: `query RankedCatalogNovels($ids:[Int], $page:Int, $sort:MediaSort!) { Page(page:$page, perPage:50) { pageInfo { hasNextPage } media(id_in:$ids,type:MANGA,format:NOVEL,sort:[$sort]) { ${SUMMARY_FIELDS} } } }`,
+        variables: { ids: unique, page, sort },
+      });
+      const data = payload.data?.Page;
+      if (!Array.isArray(data?.media) || typeof data.pageInfo?.hasNextPage !== 'boolean') throw new ProviderError('AniList returned an unexpected ranked response.');
+      for (const item of data.media) {
+        if (!allowed.has(item?.id)) throw new ProviderError('AniList returned a novel outside the requested catalog.');
+        if (!seen.has(item.id)) { seen.add(item.id); results.push(item); client.put(`summary:${item.id}`, item); }
+      }
+      if (!data.pageInfo.hasNextPage) return results;
+      if (!data.media.length) throw new ProviderError('AniList returned an incomplete ranked response.');
+    }
+    throw new ProviderError('AniList returned too many ranked pages.');
+  });
+}
+module.exports = { getNovelById, getNovelSummaries, getRankedNovelSummaries };

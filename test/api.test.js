@@ -3,6 +3,7 @@ const assert = require('node:assert/strict');
 const nativeFetch = global.fetch;
 const { books } = require('../src/utils/catalog');
 let upstreamCalls = 0, sawTrendingField = false;
+const rankedRequests = [];
 global.fetch = async (url, options = {}) => {
   if (!String(url).startsWith('https://')) return nativeFetch(url, options);
   upstreamCalls++;
@@ -10,6 +11,12 @@ global.fetch = async (url, options = {}) => {
     const { variables, query } = JSON.parse(options.body);
     if (query.includes('CatalogNovels') && /\btrending\b/.test(query)) sawTrendingField = true;
     const media = id => ({ id, title: { english: `Novel ${id}` }, genres: ['Fantasy', 'Romance', 'Drama'], tags: [{ name: 'Female Protagonist' }, { name: 'Magic' }], popularity: 123, trending: id % 100, averageScore: 78, coverImage: { color: '#123456' } });
+    if (query.includes('RankedCatalogNovels')) {
+      rankedRequests.push({ query, ...variables });
+      const ids = [...variables.ids].sort((a, b) => variables.sort === 'POPULARITY_DESC' ? b-a : a-b);
+      const from = (variables.page - 1) * 50;
+      return Response.json({ data: { Page: { media: ids.slice(from, from + 50).map(media), pageInfo: {hasNextPage: from + 50 < ids.length} } } });
+    }
     return Response.json({ data: query.includes('CatalogNovels') ? { Page: { media: variables.ids.map(media) } } : { Media: media(variables.id) } });
   }
   const [, kind, id] = String(url).match(/\/(book|series)\/(\d+)$/);
@@ -69,7 +76,7 @@ test('popular and trending rank only catalog volume 1 before pagination with fil
   const provider = require('../src/providers/AnilistProvider');
   const ranobe = require('../src/providers/RanobeDBProvider');
   const { uniqueBooks, findProvider } = require('../src/utils/seriesBooks');
-  const original = provider.getNovelSummaries, originalBook = ranobe.getBookById;
+  const original = provider.getRankedNovelSummaries, originalBook = ranobe.getBookById;
   const eligible = uniqueBooks(books).filter(b => b.volume === 1 && findProvider(b, 'anilist'));
   assert.ok(uniqueBooks(books).some(b => b.volume !== 1), 'fixture has later volumes to exclude');
   const distinct = [...new Set(eligible.map(b => findProvider(b, 'anilist').id))].sort((a,b) => a-b);
@@ -80,7 +87,12 @@ test('popular and trending rank only catalog volume 1 before pagination with fil
   summaries.get(distinct[1]).popularity = null;
   summaries.get(distinct[2]).trending = null;
   if (distinct.length > 3) { summaries.get(distinct[3]).popularity = 0; summaries.get(distinct[3]).trending = 0; }
-  provider.getNovelSummaries = async ids => { assert.ok(ids.every(id => distinct.includes(id))); return summaries; };
+  provider.getRankedNovelSummaries = async (ids, sort) => {
+    assert.ok(ids.every(id => distinct.includes(id)));
+    assert.ok(['POPULARITY_DESC', 'TRENDING_DESC'].includes(sort));
+    const key = sort === 'POPULARITY_DESC' ? 'popularity' : 'trending';
+    return [...summaries.values()].filter(Boolean).sort((a,b) => (b[key] ?? -1)-(a[key] ?? -1) || a.id-b.id);
+  };
   ranobe.getBookById = async () => ({ description:'test' });
   try {
     const score = (b, key) => summaries.get(findProvider(b, 'anilist').id)?.[key];
@@ -105,15 +117,47 @@ test('popular and trending rank only catalog volume 1 before pagination with fil
     assert.ok(allPopular.data.books.every(b => b.volume === 1));
     const allTrending = await get('/trending?perPage=100');
     assert.ok(allTrending.data.books.every(b => b.volume === 1));
-  } finally { provider.getNovelSummaries = original; ranobe.getBookById = originalBook; }
+  } finally { provider.getRankedNovelSummaries = original; ranobe.getBookById = originalBook; }
 });
 function expectedKeys() { return expected; }
 
 test('ranked routes fail closed on AniList outage or rate limit', async () => {
-  const provider = require('../src/providers/AnilistProvider'), original = provider.getNovelSummaries;
-  provider.getNovelSummaries = async () => { const e = new Error('AniList rate limit reached.'); e.statusCode=429; e.retryAfter='30'; throw e; };
+  const provider = require('../src/providers/AnilistProvider'), original = provider.getRankedNovelSummaries;
+  provider.getRankedNovelSummaries = async () => { const e = new Error('AniList rate limit reached.'); e.statusCode=429; e.retryAfter='30'; throw e; };
   try { for (const path of ['/popular','/trending']) { const {response} = await get(path); assert.equal(response.status,429); assert.equal(response.headers.get('retry-after'),'30'); } }
-  finally { provider.getNovelSummaries=original; }
+  finally { provider.getRankedNovelSummaries=original; }
 });
 
 test('AniList batch query includes trending', () => assert.equal(sawTrendingField, true));
+
+
+test('ranked routes request AniList native sort and preserve its returned order', async () => {
+  const { uniqueBooks, findProvider } = require('../src/utils/seriesBooks');
+  const candidates = uniqueBooks(books).filter(b => b.volume === 1 && findProvider(b,'anilist'));
+  for (const [route, sort] of [['popular','POPULARITY_DESC'], ['trending','TRENDING_DESC']]) {
+    const count = rankedRequests.length;
+    const {response, data} = await get(`/${route}?perPage=100`);
+    assert.equal(response.status, 200);
+    const req = rankedRequests[count];
+    assert.equal(req.sort, sort);
+    assert.match(req.query, /sort:\[\$sort\]/);
+    assert.match(req.query, /id_in:\$ids/);
+    const order = (a,b) => (sort === 'POPULARITY_DESC' ? b-a : a-b);
+    const expected = candidates.slice().sort((a,b) => order(findProvider(a,'anilist').id,findProvider(b,'anilist').id) || a.id-b.id);
+    assert.deepEqual(data.books.map(b => b.id), expected.map(b => b.id));
+    const n = rankedRequests.length;
+    await get(`/${route}?perPage=1`);
+    assert.equal(rankedRequests.length, n, 'ranked response should be cached');
+  }
+});
+
+test('native ranking paginates one whole AniList ID set', async () => {
+  const provider = require('../src/providers/AnilistProvider');
+  const ids = Array.from({length: 63}, (_,i) => 2000000+i);
+  const n = rankedRequests.length;
+  const ranked = await provider.getRankedNovelSummaries(ids, 'POPULARITY_DESC');
+  assert.deepEqual(ranked.map(x => x.id), ids.slice().reverse());
+  assert.equal(rankedRequests.length-n, 2);
+  assert.deepEqual(rankedRequests.slice(n).map(x => x.page), [1,2]);
+  assert.ok(rankedRequests.slice(n).every(x => x.ids.length === 63 && x.sort === 'POPULARITY_DESC'));
+});

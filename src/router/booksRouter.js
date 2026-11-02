@@ -26,11 +26,16 @@ async function list(req, res, modeName = 'browse') {
     let results = uniqueBooks(books).filter(b => b.title.toLowerCase().includes(search));
     // Popular and trending list volume 1 only; no fallback to a later volume.
     if (ranking) results = results.filter(b => b.volume === 1);
-    let summaries;
+    let summaries, rankedOrder;
     if (genres.length || tags.length || ranking) {
       // Fetch only AniList metadata for candidate series. Do not request every
       // RanobeDB book just to evaluate a filter. Fail closed if AniList fails.
-      summaries = await AniList.getNovelSummaries(results.map(b => findProvider(b, 'anilist')?.id).filter(Boolean));
+      const ids = results.map(b => findProvider(b, 'anilist')?.id).filter(Boolean);
+      if (ranking) {
+        const ranked = await AniList.getRankedNovelSummaries(ids, ranking === 'popularity' ? 'POPULARITY_DESC' : 'TRENDING_DESC');
+        rankedOrder = new Map(ranked.map((item, index) => [item.id, index]));
+        summaries = new Map(ranked.map(item => [item.id, item]));
+      } else summaries = await AniList.getNovelSummaries(ids);
       results = results.filter(b => {
         const a = summaries.get(findProvider(b, 'anilist')?.id);
         return a && matches(a.genres ?? [], genres, mode) && matches((a.tags ?? []).map(t => t.name), tags, mode);
@@ -39,11 +44,11 @@ async function list(req, res, modeName = 'browse') {
     if (modeName === 'browse' && (search || genres.length || tags.length)) results = onePerSeries(results);
     if (latest) results.sort((a, b) => b.id - a.id);
     if (ranking) {
-      // Rank matching catalog volume-one books, not AniList's global chart.
-      // Missing metrics are excluded rather than fabricating a rank.
-      const value = book => summaries.get(findProvider(book, 'anilist')?.id)?.[ranking];
+      // Preserve AniList's native order. Local volumes sharing a series use ID as a tie-breaker.
+      const id = book => findProvider(book, 'anilist')?.id;
+      const value = book => summaries.get(id(book))?.[ranking];
       results = results.filter(book => typeof value(book) === 'number' && Number.isFinite(value(book)));
-      results.sort((a, b) => value(b) - value(a) || a.id - b.id);
+      results.sort((a, b) => rankedOrder.get(id(a)) - rankedOrder.get(id(b)) || a.id - b.id);
     }
     const total = results.length, totalPages = Math.ceil(total / perPage);
     const slice = page > totalPages ? [] : results.slice((page - 1) * perPage, page * perPage);
