@@ -1,6 +1,874 @@
 {
   "books": [
     {
+      "id": 1118,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/a/ae/IsesumaLNV31_eng.jpg/revision/latest?cb=20260716172440",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 31,
+      "bookCloudId": "11_UerH4xp9QjDNhMdjMc-Xydth9OPM5n",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 46463
+      }
+    },
+    {
+      "id": 1117,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/5/53/IsesumaLNV30.jpg/revision/latest?cb=20240822101859",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 30,
+      "bookCloudId": "1qX-UswHoHNXX948nKLs-qCl1aztejKQC",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 42086
+      }
+    },
+    {
+      "id": 1116,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/5/5c/Coming_soon.jpg/revision/latest?cb=20240822094735",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 29,
+      "bookCloudId": "1_zecj18idnhh3m2Cx4TMcsbRWeJSnx4p",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 40039
+      }
+    },
+    {
+      "id": 1115,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/1/1c/IsesumaLNV28.jpg/revision/latest?cb=20230425201247",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 28,
+      "bookCloudId": "1cU1lN4jT0y3QeYvvJakThUnPJWsyeFjn",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 38339
+      }
+    },
+    {
+      "id": 1114,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/9/9f/IsesumaLNV27_eng.jpg/revision/latest?cb=20230425201213",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 27,
+      "bookCloudId": "1seSt08T2PGCn4VCwev5ZRO9uDMEve70o",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 36638
+      }
+    },
+    {
+      "id": 1113,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/e/e1/IsesumaLNV26_eng.jpg/revision/latest?cb=20220819081141",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 26,
+      "bookCloudId": "11FYDWiuQUiB3rUq909UVMYv99CBkNI7F",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 35059
+      }
+    },
+    {
+      "id": 1112,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/0/0c/IsesumaLNV25_eng.jpg/revision/latest?cb=20220819081135",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 25,
+      "bookCloudId": "1C8Q5w5hZU-8HcBluj33g6NJw29fLgJxz",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 33749
+      }
+    },
+    {
+      "id": 1111,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/1/1d/IsesumaLNV24_eng.jpg/revision/latest?cb=20211206053319",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 24,
+      "bookCloudId": "1WsRZ1PGSDrAPqmRrq3EwjxOGmmYT1ZMa",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 32427
+      }
+    },
+    {
+      "id": 1110,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/7/72/IsesumaLNV23_eng.jpg/revision/latest?cb=20211206053307",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 23,
+      "bookCloudId": "1zcwOT3hZdeZtBJR56MD29krQfNPvMcc0",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 31513
+      }
+    },
+    {
+      "id": 1109,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/a/a4/IsesumaLNV22_eng.jpg/revision/latest?cb=20210414035926",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 22,
+      "bookCloudId": "1oyMPn4-_qSmRa5dUDu4qK3hNamtZVHQw",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 30645
+      }
+    },
+    {
+      "id": 1108,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/b/b0/IsesumaLNV21_eng.jpg/revision/latest?cb=20210414035836",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 21,
+      "bookCloudId": "1wspFKV-wVVm4wWtLq3K5pSrJyNJH-GlF",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 29581
+      }
+    },
+    {
+      "id": 1107,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/3/3d/IsesumaLNV20_eng.jpg/revision/latest?cb=20210414035918",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 20,
+      "bookCloudId": "1wuY9QxmZv_9MJDXOG8FiKKOLu6Pex6yL",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 28812
+      }
+    },
+    {
+      "id": 1106,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/7/7a/IsesumaLNV19_eng.jpg/revision/latest?cb=20210414035906",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 19,
+      "bookCloudId": "1-edXuIqJfiS_1zL4ojeiZmRFkBYKURbd",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 28062
+      }
+    },
+    {
+      "id": 1105,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/6/6a/IsesumaLNV18_eng.jpg/revision/latest?cb=20210414035757",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 18,
+      "bookCloudId": "1gVWLkHfODUOLr2MdC2CDzlIgan3FD5mH",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 27373
+      }
+    },
+    {
+      "id": 1104,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/f/ff/IsesumaLNV17_eng.jpg/revision/latest?cb=20210414035702",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 17,
+      "bookCloudId": "1Nxa-SAGYrlEJu9nrUIqI6zemzr9igozO",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 26485
+      }
+    },
+    {
+      "id": 1103,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/b/b5/IsesumaLNV16_eng.jpg/revision/latest?cb=20210414035639",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 16,
+      "bookCloudId": "1oJMoipqiiIAl5yDadv0PQ-qb-Jnht9uo",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 25758
+      }
+    },
+    {
+      "id": 1102,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/3/3e/IsesumaLNV15_eng.jpg/revision/latest?cb=20210414035608",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 15,
+      "bookCloudId": "1324A3mxqJpVTXujAENPSQRDA_BTiywmG",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 24900
+      }
+    },
+    {
+      "id": 1101,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/8/86/IsesumaLNV14_eng.jpg/revision/latest?cb=20210414035544",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 14,
+      "bookCloudId": "1sG_iIe24DVP7C1gzdZNy_Pc-rNkRDWHB",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 24229
+      }
+    },
+    {
+      "id": 1100,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/0/01/IsesumaLNV13_eng.jpg/revision/latest?cb=20210414035512",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 13,
+      "bookCloudId": "1YdnqczkwHaFg0XiKjOCCUUEMd6ref-oy",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 23372
+      }
+    },
+    {
+      "id": 1099,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/e/e9/IsesumaLNV12_eng.jpg/revision/latest?cb=20210414035350",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 12,
+      "bookCloudId": "14hClP4c8z9kSln7DRx_P8D3Zfz6Rcl7I",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 22651
+      }
+    },
+    {
+      "id": 1098,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/2/21/IsesumaLNV11_eng.jpg/revision/latest?cb=20210414035310",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 11,
+      "bookCloudId": "12uhqK5hxBRob__4EqbYGrrrt0TIPo6I9",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 21852
+      }
+    },
+    {
+      "id": 1097,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/3/3e/IsesumaLNV10_eng.jpg/revision/latest?cb=20210414035238",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 10,
+      "bookCloudId": "18sXIAH_P0hrqxKETJrYdaxyDBYryHG-_",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 21234
+      }
+    },
+    {
+      "id": 1096,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/e/e2/IsesumaLNV9_eng.jpg/revision/latest?cb=20210414035208",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 9,
+      "bookCloudId": "1uGyEcsE-zXVsAiCYBEdlhr8vdols9GqO",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 20530
+      }
+    },
+    {
+      "id": 1095,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/6/60/IsesumaLNV8_eng.jpg/revision/latest?cb=20210414035101",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 8,
+      "bookCloudId": "1PST2x1yvvknGkTAZQiQPh61NrgYMRxrk",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 19772
+      }
+    },
+    {
+      "id": 1094,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/4/4b/IsesumaLNV7_eng.jpg/revision/latest?cb=20210414035022",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 7,
+      "bookCloudId": "1ST5Fli2NM9q-8AQStnRmEwdUlndnmx_z",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 18954
+      }
+    },
+    {
+      "id": 1093,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/c/cc/IsesumaLNV6_eng.jpg/revision/latest?cb=20210414034929",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 6,
+      "bookCloudId": "1OwWL6z-ZJMHyxZiby6h1NeL0bPy4e4De",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 18170
+      }
+    },
+    {
+      "id": 1092,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/9/98/IsesumaLNV5_eng.jpg/revision/latest?cb=20210414034851",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 5,
+      "bookCloudId": "17n-SLc56dCvABYsi75YR-sdu892Leunt",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 17479
+      }
+    },
+    {
+      "id": 1091,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/b/b2/IsesumaLNV4_eng.jpg/revision/latest?cb=20210414034821",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 4,
+      "bookCloudId": "1huBaXnHoLf8Sph8F2iE3NC6ytIVEHgRi",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 16817
+      }
+    },
+    {
+      "id": 1090,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/b/b1/IsesumaLNV3_eng.jpg/revision/latest?cb=20210414034752",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 3,
+      "bookCloudId": "1i_YzsKm47e4cNC7P2X8_WlGweczwlA3t",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 16164
+      }
+    },
+    {
+      "id": 1089,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/e/e5/IsesumaLNV2_eng.jpg/revision/latest?cb=20210414034646",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 2,
+      "bookCloudId": "10FWdlbFL1WgbwaeAqg8EJCRhLHKUdj4l",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 15474
+      }
+    },
+    {
+      "id": 1088,
+      "title": "In Another World With My Smartphone",
+      "coverUrl": "https://static.wikia.nocookie.net/isekai-smartphone/images/e/e1/IsesumaLNV1.jpg/revision/latest?cb=20200522205202",
+      "publishers": [
+        {
+          "name": "J-Novel Club",
+          "site": "https://j-novel.club/",
+          "siteLink": "https://j-novel.club/series/in-another-world-with-my-smartphone"
+        }
+      ],
+      "volume": 1,
+      "bookCloudId": "1lspijj_xDdmF39KMHDsFbJedeDjnSg3X",
+      "providers": [
+        {
+          "name": "Anilist",
+          "id": 87174
+        },
+        {
+          "name": "RanobeDB",
+          "id": 4516
+        }
+      ],
+      "bookProvider": {
+        "name": "RanobeDB",
+        "id": 14861
+      }
+    },
+    {
       "id": 1087,
       "title": "Banished from the Hero's Party, I Decided to Live a Quiet Life in the Countryside",
       "coverUrl": "https://static.wikia.nocookie.net/banished-from-the-heros-party/images/3/3a/Novel_Volume_15.jpg/revision/latest?cb=20250725034117",
@@ -2060,6 +2928,7 @@
       ],
       "volume": 6,
       "bookCloudId": "1YwojZUGQL5lm5KRJPkgmCPdZnSnk7UQO",
+      "bookServerUrl": "https://server.elscione.com/Officially%20Translated%20Light%20Novels/7th%20Time%20Loop/7th%20Time%20Loop%20-%20Volume%2006%20%5BSeven%20Seas%5D%5BKobo%5D.epub",
       "providers": [
         {
           "name": "Anilist",
@@ -2089,6 +2958,7 @@
       ],
       "volume": 5,
       "bookCloudId": "1t5j70CU6mOaR5z3iaGuiGUuK-zzxgzZZ",
+      "bookServerUrl": "https://server.elscione.com/Officially%20Translated%20Light%20Novels/7th%20Time%20Loop/7th%20Time%20Loop%20-%20Volume%2005%20%5BSeven%20Seas%5D%5BKobo%5D.epub",
       "providers": [
         {
           "name": "Anilist",
@@ -2118,6 +2988,7 @@
       ],
       "volume": 4,
       "bookCloudId": "1IdbJy0vy3PZLx4tpy9oqOgKN-AmhfzK7",
+      "bookServerUrl": "https://server.elscione.com/Officially%20Translated%20Light%20Novels/7th%20Time%20Loop/7th%20Time%20Loop%20-%20Volume%2004%20%5BSeven%20Seas%5D%5BKobo%5D.epub",
       "providers": [
         {
           "name": "Anilist",
@@ -2147,6 +3018,7 @@
       ],
       "volume": 3,
       "bookCloudId": "1qMIO0dULNyMlZ7Mqi4yqRZqtUlJpc6Fp",
+      "bookServerUrl": "https://server.elscione.com/Officially%20Translated%20Light%20Novels/7th%20Time%20Loop/7th%20Time%20Loop%20-%20Volume%2003%20%5BSeven%20Seas%5D%5BKobo%5D.epub",
       "providers": [
         {
           "name": "Anilist",
@@ -2176,6 +3048,7 @@
       ],
       "volume": 2,
       "bookCloudId": "16bCmQm6T7vOA6wo_gabklrzQzKoMm9_V",
+      "bookServerUrl": "https://server.elscione.com/Officially%20Translated%20Light%20Novels/7th%20Time%20Loop/7th%20Time%20Loop%20-%20Volume%2002%20%5BSeven%20Seas%5D%5BKobo%5D.epub",
       "providers": [
         {
           "name": "Anilist",
@@ -2205,6 +3078,7 @@
       ],
       "volume": 1,
       "bookCloudId": "1S7_a30lGoF1OfuI30RmoNMhcQ7koXY0k",
+      "bookServerUrl": "https://server.elscione.com/Officially%20Translated%20Light%20Novels/7th%20Time%20Loop/7th%20Time%20Loop%20-%20Volume%2001%20%5BSeven%20Seas%5D%5BKobo%5D.epub",
       "providers": [
         {
           "name": "Anilist",
@@ -2234,6 +3108,7 @@
       ],
       "volume": 9,
       "bookCloudId": "1Ddfb0g1JCRfcirJ7rzhcKZ3F4iKn2Nto",
+      "bookServerUrl": "https://server.elscione.com/Officially%20Translated%20Light%20Novels/A%20Wild%20Last%20Boss%20Appeared/A%20Wild%20Last%20Boss%20Appeared%20-%20Volume%2009%20%5BJ-Novel%20Club%5D%5BPremium%5D.epub",
       "providers": [
         {
           "name": "Anilist",
@@ -2263,6 +3138,7 @@
       ],
       "volume": 8,
       "bookCloudId": "1f9D104Y-1ISBE8Zfb5TXfpbEEJ1xjY6F",
+      "bookServerUrl": "https://server.elscione.com/Officially%20Translated%20Light%20Novels/A%20Wild%20Last%20Boss%20Appeared/A%20Wild%20Last%20Boss%20Appeared%20-%20Volume%2008%20%5BJ-Novel%20Club%5D%5BPremium%5D.epub",
       "providers": [
         {
           "name": "Anilist",
@@ -2292,6 +3168,7 @@
       ],
       "volume": 7,
       "bookCloudId": "1SPd49AuP3yQ2jrJD6VQGaf1TQ9Sghluy",
+      "bookServerUrl": "https://server.elscione.com/Officially%20Translated%20Light%20Novels/A%20Wild%20Last%20Boss%20Appeared/A%20Wild%20Last%20Boss%20Appeared%20-%20Volume%2007%20%5BJ-Novel%20Club%5D%5BKobo%5D.epub",
       "providers": [
         {
           "name": "Anilist",
@@ -2321,6 +3198,7 @@
       ],
       "volume": 6,
       "bookCloudId": "1FCoXz-QhHkO-Yxdv0vNp_YJ4vWwBuZZM",
+      "bookServerUrl": "https://server.elscione.com/Officially%20Translated%20Light%20Novels/A%20Wild%20Last%20Boss%20Appeared/A%20Wild%20Last%20Boss%20Appeared%20-%20Volume%2006%20%5BJ-Novel%20Club%5D%5BPremium%5D.epub",
       "providers": [
         {
           "name": "Anilist",
@@ -2350,6 +3228,7 @@
       ],
       "volume": 5,
       "bookCloudId": "1xJw43l4gwWzhjkX5NXmWd5uF_5IpyYaq",
+      "bookServerUrl": "https://server.elscione.com/Officially%20Translated%20Light%20Novels/A%20Wild%20Last%20Boss%20Appeared/A%20Wild%20Last%20Boss%20Appeared%20-%20Volume%2005%20%5BJ-Novel%20Club%5D%5BKobo%5D.epub",
       "providers": [
         {
           "name": "Anilist",
@@ -2379,6 +3258,7 @@
       ],
       "volume": 4,
       "bookCloudId": "1yvWPzuaCguqsvZeWZG3_DepXDrRFejEw",
+      "bookServerUrl": "https://server.elscione.com/Officially%20Translated%20Light%20Novels/A%20Wild%20Last%20Boss%20Appeared/A%20Wild%20Last%20Boss%20Appeared%20-%20Volume%2004%20%5BJ-Novel%20Club%5D%5BPremium%5D.epub",
       "providers": [
         {
           "name": "Anilist",
@@ -2408,6 +3288,7 @@
       ],
       "volume": 3,
       "bookCloudId": "1bNbdgDm_mMU88BiMYTr4-7mH-F8fM29J",
+      "bookServerUrl": "https://server.elscione.com/Officially%20Translated%20Light%20Novels/A%20Wild%20Last%20Boss%20Appeared/A%20Wild%20Last%20Boss%20Appeared%20-%20Volume%2003%20%5BJ-Novel%20Club%5D%5BKobo%5D.epub",
       "providers": [
         {
           "name": "Anilist",
@@ -2437,6 +3318,7 @@
       ],
       "volume": 2,
       "bookCloudId": "1buUpBN7JupkQlTgYMKRO_POIUOhPieTW",
+      "bookServerUrl": "https://server.elscione.com/Officially%20Translated%20Light%20Novels/A%20Wild%20Last%20Boss%20Appeared/A%20Wild%20Last%20Boss%20Appeared%20-%20Volume%2002%20%5BJ-Novel%20Club%5D%5BPremium%5D.epub",
       "providers": [
         {
           "name": "Anilist",
@@ -2466,6 +3348,7 @@
       ],
       "volume": 1,
       "bookCloudId": "1cZ0sfyMoc0v5JsaFuoSAPGeFPx6SMjrX",
+      "bookServerUrl": "https://server.elscione.com/Officially%20Translated%20Light%20Novels/A%20Wild%20Last%20Boss%20Appeared/A%20Wild%20Last%20Boss%20Appeared%20-%20Volume%2001%20%5BJ-Novel%20Club%5D%5BPremium%5D.epub",
       "providers": [
         {
           "name": "Anilist",
