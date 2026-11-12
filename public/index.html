@@ -1,14 +1,29 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>Novel Explorer · API playground</title><link rel="stylesheet" href="/styles.css"><script src="/app.js" defer></script></head>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#4f46e5">
+<meta name="description" content="Novel Explorer: a free API playground for browsing novels with metadata from AniList and RanobeDB. Deploy your own copy to Vercel in one click.">
+<meta property="og:title" content="Novel Explorer · API playground">
+<meta property="og:description" content="Explore novels with metadata from AniList and RanobeDB. Deploy your own to Vercel in one click.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234f46e5'/%3E%3Ctext x='16' y='22' font-size='18' font-family='Arial' font-weight='700' text-anchor='middle' fill='white'%3EN%3C/text%3E%3C/svg%3E">
+<title>Novel Explorer · API playground</title>
+<link rel="stylesheet" href="/styles.css">
+<script src="/app.js" defer></script>
+</head>
 <body>
-<header class="site-header"><div class="shell header-row"><a class="brand" href="/" aria-label="Novel Explorer home"><span class="brand-icon" aria-hidden="true">N</span>Novel Explorer</a><span class="eyebrow">API PLAYGROUND <span class="version">v2.0</span></span></div></header>
+<a class="skip-link" href="#request-heading">Skip to the API playground</a>
+<header class="site-header"><div class="shell header-row"><a class="brand" href="/" aria-label="Novel Explorer home"><span class="brand-icon" aria-hidden="true">N</span>Novel Explorer</a><div class="header-actions"><span class="eyebrow">API PLAYGROUND <span class="version">v2.0</span></span><a class="header-link" href="https://github.com/denzkie18/book-api" target="_blank" rel="noopener noreferrer">GitHub</a><a class="header-link" href="#deploy">Host it</a><a class="deploy-btn" href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdenzkie18%2Fbook-api" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 76 65" aria-hidden="true"><path d="M37.5274 0L75.0548 65H0L37.5274 0Z"/></svg>Deploy</a></div></div></header>
 <main class="shell">
+<noscript><div class="noscript-warning">JavaScript is required to use the API playground.</div></noscript>
 <section class="intro"><div><p class="eyebrow">YOUR CATALOG, CONNECTED</p><h1>Find your next chapter.</h1><p class="subtitle">Explore novels with metadata from AniList and RanobeDB.</p></div><span class="source-note">Local catalog <span aria-hidden="true">↔</span> Live metadata</span></section>
 <section class="request-panel" aria-labelledby="request-heading">
 <div class="panel-heading"><h2 id="request-heading">Build a request</h2><label class="live-switch"><input id="live" type="checkbox" checked> Live requests</label></div>
 <form id="request-form">
-<div class="endpoint-tabs" role="group" aria-label="Endpoint"><button class="endpoint active" type="button" data-mode="latest" aria-pressed="true">Latest novels</button><button class="endpoint" type="button" data-mode="popular" aria-pressed="false">Popular</button><button class="endpoint" type="button" data-mode="trending" aria-pressed="false">Trending</button><button class="endpoint" type="button" data-mode="browse" aria-pressed="false">Browse & filter</button><button class="endpoint" type="button" data-mode="series" aria-pressed="false">Single series</button><button class="endpoint" type="button" data-mode="book" aria-pressed="false">Book details</button></div>
+<div class="endpoint-tabs" role="group" aria-label="Endpoint"><button class="endpoint active" type="button" data-mode="latest" aria-pressed="true">Latest novels</button><button class="endpoint" type="button" data-mode="popular" aria-pressed="false">Popular</button><button class="endpoint" type="button" data-mode="trending" aria-pressed="false">Trending</button><button class="endpoint" type="button" data-mode="browse" aria-pressed="false">Browse &amp; filter</button><button class="endpoint" type="button" data-mode="series" aria-pressed="false">Single series</button><button class="endpoint" type="button" data-mode="book" aria-pressed="false">Book details</button></div>
 <div id="list-fields" class="fields"><div class="field search-field"><label for="q">Title search</label><input id="q" name="q" placeholder="e.g. A Tale of the Secret Saint" maxlength="200"></div><div class="field"><label for="genres">Genres</label><input id="genres" name="genres" placeholder="Fantasy, Adventure"><small>Single name or comma-separated list</small></div><div class="field"><label for="tags">Tags</label><input id="tags" name="tags" placeholder="Female Protagonist"><small>Use AniList tag names</small></div><div class="field"><label for="match">Match within each filter</label><select id="match" name="match"><option value="all">All names</option><option value="any">Any name</option></select></div><div class="field"><label for="perPage">Results per page</label><select id="perPage" name="perPage"><option>6</option><option>10</option><option>20</option><option>50</option></select></div></div>
 <div id="detail-fields" class="fields" hidden><div class="field"><label for="book-id">Local book ID</label><input id="book-id" type="number" min="1" step="1" value="1059"><small>Use the catalog ID, not an upstream ID</small></div></div>
 <div class="request-bar"><div class="request-url"><span class="method">GET</span><code id="request-path"></code></div><button id="send" class="primary" type="submit">Send request <span aria-hidden="true">↗</span></button></div>
@@ -19,5 +34,59 @@
 <div id="notice" class="notice" role="alert" hidden></div><div id="results" class="results" aria-busy="false"><div class="empty"><h3>Your next read starts here.</h3><p>Send a request to explore the catalog.</p></div></div><pre id="json-output" tabindex="0" aria-label="JSON response" hidden></pre>
 <div id="pagination" class="pagination" hidden><button id="previous" type="button">← Previous</button><span id="page-label"></span><button id="next" type="button">Next →</button></div>
 </section>
-<footer>Descriptions & publication dates · RanobeDB <span aria-hidden="true">/</span> Genres, tags & scores · AniList</footer>
-</main></body></html>
+
+<section id="deploy" class="deploy-panel" aria-labelledby="deploy-heading">
+<div class="deploy-top">
+<div><h2 id="deploy-heading">Host your own</h2><p class="lead">Free to run, no API keys or database needed.</p></div>
+<a class="deploy-btn" href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdenzkie18%2Fbook-api" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 76 65" aria-hidden="true"><path d="M37.5274 0L75.0548 65H0L37.5274 0Z"/></svg>Deploy with Vercel</a>
+</div>
+<div class="deploy-grid">
+<div class="deploy-card"><h3>One click</h3><ol class="deploy-steps"><li>Click <strong>Deploy with Vercel</strong>.</li><li>Sign in with GitHub, GitLab or Bitbucket.</li><li>Keep the defaults and press <strong>Deploy</strong>.</li><li>Open your new URL. The explorer is at <code>/</code>.</li></ol></div>
+<div class="deploy-card"><h3>From a fork</h3><ol class="deploy-steps"><li>Fork <a href="https://github.com/denzkie18/book-api" target="_blank" rel="noopener noreferrer">denzkie18/book-api</a>.</li><li>Go to <a href="https://vercel.com/new" target="_blank" rel="noopener noreferrer">vercel.com/new</a> and import your fork.</li><li>Press <strong>Deploy</strong>. Every push redeploys automatically.</li></ol></div>
+<div class="deploy-card"><h3>Vercel CLI</h3><div class="code-block"><button class="copy-snippet" type="button" data-copy="npm i -g vercel&#10;vercel --prod" aria-label="Copy CLI commands">Copy</button><code>npm i -g vercel
+vercel --prod</code></div></div>
+<div class="deploy-card"><h3>Run locally</h3><div class="code-block"><button class="copy-snippet" type="button" data-copy="git clone https://github.com/denzkie18/book-api.git&#10;cd book-api&#10;npm ci&#10;npm start" aria-label="Copy local setup commands">Copy</button><code>git clone https://github.com/denzkie18/book-api.git
+cd book-api
+npm ci
+npm start</code></div><p class="deploy-note">Needs Node.js 20+. Opens at <code>http://localhost:3000</code>.</p></div>
+</div>
+<div class="deploy-card deploy-wide"><h3>Your API base URL</h3><p class="deploy-note">Once deployed, call the API from anywhere:</p><div class="code-block"><button class="copy-snippet" id="copy-base" type="button" data-copy="" aria-label="Copy example request">Copy</button><code id="base-url-example">curl "https://your-app.vercel.app/api/v0/novel/latest"</code></div></div>
+<p class="deploy-note"><strong>Heads up:</strong> on Vercel the cache and request pacing live in memory and reset when an instance restarts, so upstream rate limits may be hit sooner under heavy traffic. For high volume, use a long-running host such as Render, Railway or Fly.io.</p>
+</section>
+
+<footer>Descriptions &amp; publication dates · RanobeDB <span aria-hidden="true">/</span> Genres, tags &amp; scores · AniList<div class="footer-links"><a href="https://github.com/denzkie18/book-api" target="_blank" rel="noopener noreferrer">Source on GitHub</a> · <a href="#deploy">Host your own</a> · <a href="#">Back to top</a></div></footer>
+</main>
+<script>
+(function () {
+  // Show this deployment's real base URL in the example and wire up the copy buttons.
+  try {
+    var example = document.getElementById("base-url-example");
+    var copyBase = document.getElementById("copy-base");
+    if (example && /^https?:/.test(location.origin)) {
+      var cmd = 'curl "' + location.origin + '/api/v0/novel/latest"';
+      example.textContent = cmd;
+      if (copyBase) copyBase.setAttribute("data-copy", cmd);
+    } else if (copyBase && example) {
+      copyBase.setAttribute("data-copy", example.textContent);
+    }
+  } catch (e) {}
+
+  document.addEventListener("click", function (event) {
+    var button = event.target.closest && event.target.closest(".copy-snippet");
+    if (!button) return;
+    var text = button.getAttribute("data-copy") || "";
+    var done = function (ok) {
+      var original = button.textContent;
+      button.textContent = ok ? "Copied" : "Press Ctrl+C";
+      setTimeout(function () { button.textContent = "Copy"; }, 1500);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
+    } else {
+      done(false);
+    }
+  });
+})();
+</script>
+</body>
+</html>

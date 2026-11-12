@@ -14,6 +14,38 @@ npm start
 
 `PORT=8080 npm start` changes the port. Run `npm test` for deterministic mocked-upstream regression tests. `npm run test:live` checks the real public providers and can fail if a provider is unavailable or rate-limited.
 
+## Deploy your own
+
+[
+
+![Deploy with Vercel](https://vercel.com/button)
+
+](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdenzkie18%2Fbook-api)
+
+### Host it on Vercel
+
+**One click**
+1. Click the **Deploy with Vercel** button above.
+2. Sign in with GitHub, GitLab or Bitbucket.
+3. Vercel copies the repo to your account. Keep the defaults and click **Deploy**.
+4. In about a minute you get a live URL. The explorer is at `/`.
+
+No environment variables or API keys are needed.
+
+**From your own fork**
+1. Fork this repo.
+2. Go to [vercel.com/new](https://vercel.com/new) and import your fork.
+3. Click **Deploy**.
+
+**With the CLI**
+```bash
+npm i -g vercel
+vercel        # preview deploy
+vercel --prod # production deploy
+```
+
+> **Note:** On Vercel, the in-memory cache and request pacing reset whenever a serverless instance restarts. For heavy traffic, use a long-running host (Render, Railway, Fly.io) instead.
+
 ## Routes
 
 | GET route | Purpose |
